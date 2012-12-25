@@ -1,0 +1,27 @@
+# Shinobi should be added by the end user
+ShinobiCharts.embeddedframework
+
+# We ignore the settings file too
+ConAir/ConAirSettings.plist
+
+.DS_Store
+*~
+*.swp
+*~.nib
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+*.mode1v3
+*.mode2v3
+
+*.xcodeproj/xcuserdata/*.xcuserdatad
+*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad
+*.xcodeproj/project.pbxproj
+
+*.xcuserstate
+xcuserdata/
+project.xcworkspace/

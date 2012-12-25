@@ -23,6 +23,18 @@
 		2266CA8F1689F70B006AEC44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CA6A1689F70B006AEC44 /* Foundation.framework */; };
 		2266CA971689F70B006AEC44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2266CA951689F70B006AEC44 /* InfoPlist.strings */; };
 		2266CA9A1689F70B006AEC44 /* RangeSelectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CA991689F70B006AEC44 /* RangeSelectorTests.m */; };
+		2266CAA61689F799006AEC44 /* TemperatureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAA51689F799006AEC44 /* TemperatureData.m */; };
+		2266CAAD1689F97D006AEC44 /* TemperatureDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAAC1689F97D006AEC44 /* TemperatureDataPoint.m */; };
+		2266CAB11689FA16006AEC44 /* ShinobiLicense.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAB01689FA16006AEC44 /* ShinobiLicense.m */; };
+		2266CAB31689FAA6006AEC44 /* RangeSelectorSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */; };
+		2266CABA168A01FC006AEC44 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB6168A01FC006AEC44 /* Nunito-Bold.ttf */; };
+		2266CABB168A01FC006AEC44 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB7168A01FC006AEC44 /* Nunito-Light.ttf */; };
+		2266CABC168A01FC006AEC44 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB8168A01FC006AEC44 /* Nunito-Regular.ttf */; };
+		2266CABD168A01FC006AEC44 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAB9168A01FC006AEC44 /* ShinobiCharts.framework */; };
+		2266CAC1168A0280006AEC44 /* ChartDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAC0168A0280006AEC44 /* ChartDatasource.m */; };
+		2266CAC3168A05E2006AEC44 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC2168A05E2006AEC44 /* QuartzCore.framework */; };
+		2266CAC5168A05E8006AEC44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC4168A05E8006AEC44 /* Security.framework */; };
+		2266CAC7168A05EE006AEC44 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC6168A05EE006AEC44 /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +70,22 @@
 		2266CA961689F70B006AEC44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2266CA981689F70B006AEC44 /* RangeSelectorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RangeSelectorTests.h; sourceTree = "<group>"; };
 		2266CA991689F70B006AEC44 /* RangeSelectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RangeSelectorTests.m; sourceTree = "<group>"; };
+		2266CAA41689F799006AEC44 /* TemperatureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureData.h; sourceTree = "<group>"; };
+		2266CAA51689F799006AEC44 /* TemperatureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureData.m; sourceTree = "<group>"; };
+		2266CAAB1689F97D006AEC44 /* TemperatureDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureDataPoint.h; sourceTree = "<group>"; };
+		2266CAAC1689F97D006AEC44 /* TemperatureDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureDataPoint.m; sourceTree = "<group>"; };
+		2266CAAF1689FA16006AEC44 /* ShinobiLicense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiLicense.h; sourceTree = "<group>"; };
+		2266CAB01689FA16006AEC44 /* ShinobiLicense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiLicense.m; sourceTree = "<group>"; };
+		2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RangeSelectorSettings.plist; sourceTree = "<group>"; };
+		2266CAB6168A01FC006AEC44 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		2266CAB7168A01FC006AEC44 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		2266CAB8168A01FC006AEC44 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		2266CAB9168A01FC006AEC44 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		2266CABF168A0280006AEC44 /* ChartDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDatasource.h; sourceTree = "<group>"; };
+		2266CAC0168A0280006AEC44 /* ChartDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartDatasource.m; sourceTree = "<group>"; };
+		2266CAC2168A05E2006AEC44 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2266CAC4168A05E8006AEC44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2266CAC6168A05EE006AEC44 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +93,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2266CAC7168A05EE006AEC44 /* OpenGLES.framework in Frameworks */,
+				2266CAC5168A05E8006AEC44 /* Security.framework in Frameworks */,
+				2266CAC3168A05E2006AEC44 /* QuartzCore.framework in Frameworks */,
 				2266CA691689F70B006AEC44 /* UIKit.framework in Frameworks */,
 				2266CA6B1689F70B006AEC44 /* Foundation.framework in Frameworks */,
 				2266CA6D1689F70B006AEC44 /* CoreGraphics.framework in Frameworks */,
+				2266CABD168A01FC006AEC44 /* ShinobiCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +138,10 @@
 		2266CA671689F70B006AEC44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2266CAC6168A05EE006AEC44 /* OpenGLES.framework */,
+				2266CAC4168A05E8006AEC44 /* Security.framework */,
+				2266CAC2168A05E2006AEC44 /* QuartzCore.framework */,
+				2266CAB4168A01FC006AEC44 /* ShinobiCharts.embeddedframework */,
 				2266CA681689F70B006AEC44 /* UIKit.framework */,
 				2266CA6A1689F70B006AEC44 /* Foundation.framework */,
 				2266CA6C1689F70B006AEC44 /* CoreGraphics.framework */,
@@ -117,6 +153,9 @@
 		2266CA6E1689F70B006AEC44 /* RangeSelector */ = {
 			isa = PBXGroup;
 			children = (
+				2266CAAE1689F9EB006AEC44 /* Utilities */,
+				2266CAA31689F72B006AEC44 /* Data */,
+				2266CABE168A0263006AEC44 /* Charts */,
 				2266CA771689F70B006AEC44 /* AppDelegate.h */,
 				2266CA781689F70B006AEC44 /* AppDelegate.m */,
 				2266CA801689F70B006AEC44 /* MainStoryboard.storyboard */,
@@ -158,6 +197,55 @@
 				2266CA951689F70B006AEC44 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2266CAA31689F72B006AEC44 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2266CAA41689F799006AEC44 /* TemperatureData.h */,
+				2266CAA51689F799006AEC44 /* TemperatureData.m */,
+				2266CAAB1689F97D006AEC44 /* TemperatureDataPoint.h */,
+				2266CAAC1689F97D006AEC44 /* TemperatureDataPoint.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		2266CAAE1689F9EB006AEC44 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2266CAAF1689FA16006AEC44 /* ShinobiLicense.h */,
+				2266CAB01689FA16006AEC44 /* ShinobiLicense.m */,
+				2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		2266CAB4168A01FC006AEC44 /* ShinobiCharts.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				2266CAB5168A01FC006AEC44 /* Resources */,
+				2266CAB9168A01FC006AEC44 /* ShinobiCharts.framework */,
+			);
+			path = ShinobiCharts.embeddedframework;
+			sourceTree = "<group>";
+		};
+		2266CAB5168A01FC006AEC44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2266CAB6168A01FC006AEC44 /* Nunito-Bold.ttf */,
+				2266CAB7168A01FC006AEC44 /* Nunito-Light.ttf */,
+				2266CAB8168A01FC006AEC44 /* Nunito-Regular.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2266CABE168A0263006AEC44 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				2266CABF168A0280006AEC44 /* ChartDatasource.h */,
+				2266CAC0168A0280006AEC44 /* ChartDatasource.m */,
+			);
+			name = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +324,10 @@
 				2266CA7D1689F70B006AEC44 /* Default@2x.png in Resources */,
 				2266CA7F1689F70B006AEC44 /* Default-568h@2x.png in Resources */,
 				2266CA821689F70B006AEC44 /* MainStoryboard.storyboard in Resources */,
+				2266CAB31689FAA6006AEC44 /* RangeSelectorSettings.plist in Resources */,
+				2266CABA168A01FC006AEC44 /* Nunito-Bold.ttf in Resources */,
+				2266CABB168A01FC006AEC44 /* Nunito-Light.ttf in Resources */,
+				2266CABC168A01FC006AEC44 /* Nunito-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +365,10 @@
 				2266CA751689F70B006AEC44 /* main.m in Sources */,
 				2266CA791689F70B006AEC44 /* AppDelegate.m in Sources */,
 				2266CA851689F70B006AEC44 /* ViewController.m in Sources */,
+				2266CAA61689F799006AEC44 /* TemperatureData.m in Sources */,
+				2266CAAD1689F97D006AEC44 /* TemperatureDataPoint.m in Sources */,
+				2266CAB11689FA16006AEC44 /* ShinobiLicense.m in Sources */,
+				2266CAC1168A0280006AEC44 /* ChartDatasource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +473,10 @@
 		2266CA9E1689F70B006AEC44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ShinobiCharts.embeddedframework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RangeSelector/RangeSelector-Prefix.pch";
 				INFOPLIST_FILE = "RangeSelector/RangeSelector-Info.plist";
@@ -388,6 +488,10 @@
 		2266CA9F1689F70B006AEC44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/ShinobiCharts.embeddedframework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RangeSelector/RangeSelector-Prefix.pch";
 				INFOPLIST_FILE = "RangeSelector/RangeSelector-Info.plist";

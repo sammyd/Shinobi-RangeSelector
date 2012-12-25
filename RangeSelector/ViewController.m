@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import <ShinobiCharts/ShinobiChart.h>
+#import "ChartDatasource.h"
+#import "ShinobiLicense.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    ChartDatasource *datasource;
+}
 
 @end
 
@@ -18,6 +23,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:self.view.bounds withPrimaryXAxisType:SChartAxisTypeDateTime withPrimaryYAxisType:SChartAxisTypeNumber];
+    chart.licenseKey = [ShinobiLicense getShinobiLicenseKey];
+    
+    datasource = [[ChartDatasource alloc] init];
+    chart.datasource = datasource;
+    
+    for (SChartAxis *axis in chart.allAxes) {
+        axis.enableGestureZooming = YES;
+        axis.enableGesturePanning = YES;
+        axis.enableMomentumPanning = YES;
+        axis.enableMomentumZooming = YES;
+    }
+    
+    [self.view addSubview:chart];
 }
 
 - (void)didReceiveMemoryWarning
