@@ -9,10 +9,11 @@
 #import "ViewController.h"
 #import <ShinobiCharts/ShinobiChart.h>
 #import "ChartDatasource.h"
-#import "ShinobiLicense.h"
+#import "ShinobiRangeSelector.h"
 
 @interface ViewController () {
     ChartDatasource *datasource;
+    ShinobiRangeSelector *rangeSelector;
 }
 
 @end
@@ -23,20 +24,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:self.view.bounds withPrimaryXAxisType:SChartAxisTypeDateTime withPrimaryYAxisType:SChartAxisTypeNumber];
-    chart.licenseKey = [ShinobiLicense getShinobiLicenseKey];
-    
     datasource = [[ChartDatasource alloc] init];
-    chart.datasource = datasource;
+    rangeSelector = [[ShinobiRangeSelector alloc] initWithFrame:self.view.bounds datasource:datasource splitProportion:0.75f];
     
-    for (SChartAxis *axis in chart.allAxes) {
-        axis.enableGestureZooming = YES;
-        axis.enableGesturePanning = YES;
-        axis.enableMomentumPanning = YES;
-        axis.enableMomentumZooming = YES;
-    }
-    
-    [self.view addSubview:chart];
+    [self.view addSubview:rangeSelector];
 }
 
 - (void)didReceiveMemoryWarning

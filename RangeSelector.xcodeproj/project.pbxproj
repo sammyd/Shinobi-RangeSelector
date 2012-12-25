@@ -35,6 +35,8 @@
 		2266CAC3168A05E2006AEC44 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC2168A05E2006AEC44 /* QuartzCore.framework */; };
 		2266CAC5168A05E8006AEC44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC4168A05E8006AEC44 /* Security.framework */; };
 		2266CAC7168A05EE006AEC44 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC6168A05EE006AEC44 /* OpenGLES.framework */; };
+		2266CACA168A3163006AEC44 /* ShinobiRangeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAC9168A3163006AEC44 /* ShinobiRangeSelector.m */; };
+		2266CACD168A35A9006AEC44 /* ChartConfigUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,10 @@
 		2266CAC2168A05E2006AEC44 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2266CAC4168A05E8006AEC44 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2266CAC6168A05EE006AEC44 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2266CAC8168A3163006AEC44 /* ShinobiRangeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeSelector.h; sourceTree = "<group>"; };
+		2266CAC9168A3163006AEC44 /* ShinobiRangeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeSelector.m; sourceTree = "<group>"; };
+		2266CACB168A35A9006AEC44 /* ChartConfigUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartConfigUtilities.h; sourceTree = "<group>"; };
+		2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConfigUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +250,10 @@
 			children = (
 				2266CABF168A0280006AEC44 /* ChartDatasource.h */,
 				2266CAC0168A0280006AEC44 /* ChartDatasource.m */,
+				2266CAC8168A3163006AEC44 /* ShinobiRangeSelector.h */,
+				2266CAC9168A3163006AEC44 /* ShinobiRangeSelector.m */,
+				2266CACB168A35A9006AEC44 /* ChartConfigUtilities.h */,
+				2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */,
 			);
 			name = Charts;
 			sourceTree = "<group>";
@@ -369,6 +379,8 @@
 				2266CAAD1689F97D006AEC44 /* TemperatureDataPoint.m in Sources */,
 				2266CAB11689FA16006AEC44 /* ShinobiLicense.m in Sources */,
 				2266CAC1168A0280006AEC44 /* ChartDatasource.m in Sources */,
+				2266CACA168A3163006AEC44 /* ShinobiRangeSelector.m in Sources */,
+				2266CACD168A35A9006AEC44 /* ChartConfigUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
