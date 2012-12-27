@@ -9,11 +9,13 @@
 #import "ShinobiRangeSelector.h"
 #import "ShinobiLicense.h"
 #import "ChartConfigUtilities.h"
+#import "ShinobiRangeAnnotationManager.h"
 
 @interface ShinobiRangeSelector () {
     id<SChartDatasource> chartDatasource;
     ShinobiChart *mainChart;
     ShinobiChart *rangeChart;
+    ShinobiRangeAnnotationManager *annotationManager;
 }
 
 @end
@@ -68,6 +70,9 @@
     // Remove the axis markings
     [ChartConfigUtilities removeAllAxisMarkingsFromChart:rangeChart];
     
+    // Add some annotations
+    annotationManager = [[ShinobiRangeAnnotationManager alloc] initWithChart:rangeChart];
+    
     [self addSubview:rangeChart];
 }
 
@@ -75,12 +80,12 @@
 #pragma mark - SChartDelegate methods
 - (void)sChartIsPanning:(ShinobiChart *)chart withChartMovementInformation:(const SChartMovementInformation *)information
 {
-    NSLog(@"Panning");
+    [annotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
 }
 
 - (void)sChartIsZooming:(ShinobiChart *)chart withChartMovementInformation:(const SChartMovementInformation *)information
 {
-    NSLog(@"Zooming");
+    [annotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
 }
 
 @end
