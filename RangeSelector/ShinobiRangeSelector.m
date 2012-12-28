@@ -11,7 +11,7 @@
 #import "ChartConfigUtilities.h"
 #import "ShinobiRangeAnnotationManager.h"
 
-@interface ShinobiRangeSelector () {
+@interface ShinobiRangeSelector () <ShinobiRangeAnnotationDelegate> {
     id<SChartDatasource> chartDatasource;
     ShinobiChart *mainChart;
     ShinobiChart *rangeChart;
@@ -72,8 +72,16 @@
     
     // Add some annotations
     annotationManager = [[ShinobiRangeAnnotationManager alloc] initWithChart:rangeChart];
+    annotationManager.delegate = self;
     
     [self addSubview:rangeChart];
+}
+
+#pragma mark - ShinobiRangeSelectorDelegate methods
+- (void)rangeSelector:(ShinobiRangeSelector *)selector didMoveToRange:(SChartRange *)range
+{
+    [mainChart.xAxis setRangeWithMinimum:range.minimum andMaximum:range.maximum];
+    [mainChart redrawChart];
 }
 
 

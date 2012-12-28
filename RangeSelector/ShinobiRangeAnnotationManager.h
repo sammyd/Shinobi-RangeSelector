@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <ShinobiCharts/ShinobiChart.h>
+#import "ShinobiRangeAnnotationDelegate.h"
 
 @interface ShinobiRangeAnnotationManager : NSObject
+
+@property (nonatomic, retain) id<ShinobiRangeAnnotationDelegate> delegate;
 
 - (id)initWithChart:(ShinobiChart*)chart;
 - (void)moveRangeSelectorToRange:(SChartRange*)range;

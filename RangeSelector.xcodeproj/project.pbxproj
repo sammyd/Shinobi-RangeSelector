@@ -95,6 +95,8 @@
 		2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConfigUtilities.m; sourceTree = "<group>"; };
 		2266CACF168A3B74006AEC44 /* ShinobiRangeAnnotationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeAnnotationManager.h; sourceTree = "<group>"; };
 		2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeAnnotationManager.m; sourceTree = "<group>"; };
+		2266CAD2168CA82A006AEC44 /* ShinobiRangeAnnotationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeAnnotationDelegate.h; sourceTree = "<group>"; };
+		2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChartAxis_IntExtTransforms.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				2266CAAF1689FA16006AEC44 /* ShinobiLicense.h */,
 				2266CAB01689FA16006AEC44 /* ShinobiLicense.m */,
 				2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */,
+				2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			children = (
 				2266CACF168A3B74006AEC44 /* ShinobiRangeAnnotationManager.h */,
 				2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */,
+				2266CAD2168CA82A006AEC44 /* ShinobiRangeAnnotationDelegate.h */,
 			);
 			name = RangeAnnotations;
 			sourceTree = "<group>";
