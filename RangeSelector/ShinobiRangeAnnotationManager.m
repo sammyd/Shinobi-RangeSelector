@@ -9,11 +9,13 @@
 #import "ShinobiRangeAnnotationManager.h"
 #import <ShinobiCharts/SChartCanvas.h>
 #import "SChartAxis_IntExtTransforms.h"
+#import "ShinobiRangeHandleAnnotation.h"
+#import "ShinobiRangeSelectionAnnotation.h"
 
 @interface ShinobiRangeAnnotationManager ()<UIGestureRecognizerDelegate> {
     ShinobiChart *chart;
     SChartAnnotation *leftLine, *leftHandle, *rightHandle, *rightLine;
-    SChartAnnotationZooming *leftShading, *rightShading;
+    SChartAnnotationZooming *leftShading, *rightShading, *rangeSelection;
 }
 
 @end
@@ -43,17 +45,27 @@
 - (void)createAnnotations
 {
     // Lines are pretty simple
-    leftLine = [SChartAnnotation verticalLineAtPosition:nil withXAxis:chart.xAxis andYAxis:chart.yAxis withWidth:3.f withColor:[UIColor blackColor]];
-    rightLine = [SChartAnnotation verticalLineAtPosition:nil withXAxis:chart.xAxis andYAxis:chart.yAxis withWidth:3.f withColor:[UIColor blackColor]];
+    leftLine = [SChartAnnotation verticalLineAtPosition:nil withXAxis:chart.xAxis andYAxis:chart.yAxis withWidth:3.f withColor:[UIColor colorWithWhite:0.2 alpha:1.f]];
+    rightLine = [SChartAnnotation verticalLineAtPosition:nil withXAxis:chart.xAxis andYAxis:chart.yAxis withWidth:3.f withColor:[UIColor colorWithWhite:0.2 alpha:1.f]];
     // Shading is either side of the line
     leftShading = [SChartAnnotation verticalBandAtPosition:chart.xAxis.axisRange.minimum andMaxX:nil withXAxis:chart.xAxis andYAxis:chart.yAxis withColor:[UIColor colorWithWhite:0.1f alpha:0.3f]];
     rightShading = [SChartAnnotation verticalBandAtPosition:nil andMaxX:chart.xAxis.axisRange.maximum withXAxis:chart.xAxis andYAxis:chart.yAxis withColor:[UIColor colorWithWhite:0.1f alpha:0.3f]];
+    // The invisible range selection
+    rangeSelection = [[ShinobiRangeSelectionAnnotation alloc] initWithFrame:CGRectMake(0, 0, 1, 1) xValue:chart.xAxis.axisRange.minimum xValueMax:chart.xAxis.axisRange.maximum xAxis:chart.xAxis yAxis:chart.yAxis];
+    // Create the handles
+    leftHandle = [[ShinobiRangeHandleAnnotation alloc] initWithFrame:CGRectMake(0, 0, 30, 80) colour:[UIColor colorWithWhite:0.2 alpha:1.f] xValue:chart.xAxis.axisRange.minimum xAxis:chart.xAxis yAxis:chart.yAxis];
+    rightHandle = [[ShinobiRangeHandleAnnotation alloc] initWithFrame:CGRectMake(0, 0, 30, 80) colour:[UIColor colorWithWhite:0.2 alpha:1.f] xValue:chart.xAxis.axisRange.maximum xAxis:chart.xAxis yAxis:chart.yAxis];
+    
     
     // Add the annotations to the chart
     [chart addAnnotation:leftLine];
     [chart addAnnotation:rightLine];
     [chart addAnnotation:leftShading];
     [chart addAnnotation:rightShading];
+    [chart addAnnotation:rangeSelection];
+    // Add the handles on top so they take gesture priority.
+    [chart addAnnotation:leftHandle];
+    [chart addAnnotation:rightHandle];
 }
 
 - (void)prepareGestureRecognisers
@@ -69,16 +81,21 @@
     }
     chart.canvas.glView.userInteractionEnabled = YES;
     
-    // Create a simple gesture recogniser and add it to the glView
+    // Create a simple gesture recogniser and add it to the range selection
     UIPanGestureRecognizer *gestureRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-    [chart.canvas.glView addGestureRecognizer:gestureRecogniser];
+    [rangeSelection addGestureRecognizer:gestureRecogniser];
+    
+    UIPanGestureRecognizer *leftHandleRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleHandlePan:)];
+    [leftHandle addGestureRecognizer:leftHandleRecogniser];
+    UIPanGestureRecognizer *rightHandleRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleHandlePan:)];
+    [rightHandle addGestureRecognizer:rightHandleRecogniser];
 }
 
 #pragma mark - Gesture events
 - (void)handlePan:(UIPanGestureRecognizer*)recogniser
 {
     // What's the pixel location of the touch?
-    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas.glView];
+    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
     
     // Now need to map this to the new data range required
     double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
@@ -97,6 +114,28 @@
     }
 }
 
+- (void)handleHandlePan:(UIPanGestureRecognizer*)recogniser
+{
+    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
+    
+    double newValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:currentTouchPoint.x])] doubleValue];
+    
+    SChartRange *newRange;
+    if(recogniser.view == leftHandle) {
+        newRange = [[SChartRange alloc] initWithMinimum:@(newValue) andMaximum:rightHandle.xValue];
+    } else {
+        newRange = [[SChartRange alloc] initWithMinimum:leftHandle.xValue andMaximum:@(newValue)];
+    }
+    
+    // Move
+    [self moveRangeSelectorToRange:newRange];
+    
+    // And fire the delegate method
+    if (self.delegate && [self.delegate respondsToSelector:@selector(rangeAnnotation:didMoveToRange:)]) {
+        [self.delegate rangeAnnotation:self didMoveToRange:newRange];
+    }
+}
+
 
 #pragma mark - API Methods
 - (void)moveRangeSelectorToRange:(SChartRange *)range
@@ -107,6 +146,10 @@
     leftShading.xValueMax = range.minimum;
     rightShading.xValue = range.maximum;
     rightShading.xValueMax = chart.xAxis.axisRange.maximum;
+    leftHandle.xValue = range.minimum;
+    rightHandle.xValue = range.maximum;
+    rangeSelection.xValue = range.minimum;
+    rangeSelection.xValueMax = range.maximum;
     
     [chart redrawChart];
 }

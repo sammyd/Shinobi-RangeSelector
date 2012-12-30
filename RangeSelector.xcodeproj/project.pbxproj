@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223E27221690333400568319 /* ShinobiRangeSelectionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 223E27211690333400568319 /* ShinobiRangeSelectionAnnotation.m */; };
 		2266CA691689F70B006AEC44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CA681689F70B006AEC44 /* UIKit.framework */; };
 		2266CA6B1689F70B006AEC44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CA6A1689F70B006AEC44 /* Foundation.framework */; };
 		2266CA6D1689F70B006AEC44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CA6C1689F70B006AEC44 /* CoreGraphics.framework */; };
@@ -38,6 +39,7 @@
 		2266CACA168A3163006AEC44 /* ShinobiRangeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAC9168A3163006AEC44 /* ShinobiRangeSelector.m */; };
 		2266CACD168A35A9006AEC44 /* ChartConfigUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */; };
 		2266CAD1168A3B75006AEC44 /* ShinobiRangeAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */; };
+		2266CADC168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223E27201690333400568319 /* ShinobiRangeSelectionAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeSelectionAnnotation.h; sourceTree = "<group>"; };
+		223E27211690333400568319 /* ShinobiRangeSelectionAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeSelectionAnnotation.m; sourceTree = "<group>"; };
 		2266CA641689F70B006AEC44 /* RangeSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RangeSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2266CA681689F70B006AEC44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2266CA6A1689F70B006AEC44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +101,8 @@
 		2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeAnnotationManager.m; sourceTree = "<group>"; };
 		2266CAD2168CA82A006AEC44 /* ShinobiRangeAnnotationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeAnnotationDelegate.h; sourceTree = "<group>"; };
 		2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChartAxis_IntExtTransforms.h; sourceTree = "<group>"; };
+		2266CADA168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeHandleAnnotation.h; sourceTree = "<group>"; };
+		2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeHandleAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +277,10 @@
 				2266CACF168A3B74006AEC44 /* ShinobiRangeAnnotationManager.h */,
 				2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */,
 				2266CAD2168CA82A006AEC44 /* ShinobiRangeAnnotationDelegate.h */,
+				2266CADA168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.h */,
+				2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */,
+				223E27201690333400568319 /* ShinobiRangeSelectionAnnotation.h */,
+				223E27211690333400568319 /* ShinobiRangeSelectionAnnotation.m */,
 			);
 			name = RangeAnnotations;
 			sourceTree = "<group>";
@@ -399,6 +409,8 @@
 				2266CACA168A3163006AEC44 /* ShinobiRangeSelector.m in Sources */,
 				2266CACD168A35A9006AEC44 /* ChartConfigUtilities.m in Sources */,
 				2266CAD1168A3B75006AEC44 /* ShinobiRangeAnnotationManager.m in Sources */,
+				2266CADC168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m in Sources */,
+				223E27221690333400568319 /* ShinobiRangeSelectionAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +595,7 @@
 				2266CA9F1689F70B006AEC44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2266CAA01689F70B006AEC44 /* Build configuration list for PBXNativeTarget "RangeSelectorTests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +604,7 @@
 				2266CAA21689F70B006AEC44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

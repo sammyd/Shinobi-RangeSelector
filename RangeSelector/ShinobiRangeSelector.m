@@ -78,7 +78,7 @@
 }
 
 #pragma mark - ShinobiRangeSelectorDelegate methods
-- (void)rangeSelector:(ShinobiRangeSelector *)selector didMoveToRange:(SChartRange *)range
+- (void)rangeAnnotation:(ShinobiRangeAnnotationManager *)annotation didMoveToRange:(SChartRange *)range
 {
     [mainChart.xAxis setRangeWithMinimum:range.minimum andMaximum:range.maximum];
     [mainChart redrawChart];
