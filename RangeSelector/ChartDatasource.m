@@ -54,4 +54,15 @@
     return [NSArray arrayWithArray:datapointArray];
 }
 
+- (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(int)dataIndex forSeriesAtIndex:(int)seriesIndex
+{
+    // Find the underlying temperature data point
+    TemperatureDataPoint *tdp = temperatureData.data[dataIndex];
+    // Turn this into a chart data point
+    SChartDataPoint *dp = [SChartDataPoint new];
+    dp.xValue = tdp.timestamp;
+    dp.yValue = tdp.temperature;
+    return dp;
+}
+
 @end

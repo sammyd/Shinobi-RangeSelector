@@ -16,6 +16,7 @@
     ShinobiChart *mainChart;
     ShinobiChart *rangeChart;
     ShinobiRangeAnnotationManager *annotationManager;
+    CGFloat minimumSpan;
 }
 
 @end
@@ -36,9 +37,15 @@
         rangeFrame.size.height -= mainFrame.size.height;
         rangeFrame.origin.y = mainFrame.size.height;
         
+        // Set a minimum span of 4 days
+        minimumSpan = 3600 * 24 * 4;
+        
         // Create the 2 charts
         [self createMainChartWithFrame:mainFrame];
         [self createRangeChartWithFrame:rangeFrame];
+        
+        // And now prepare the default range
+        [self configureTheDefaultRange];
     }
     return self;
 }
@@ -71,10 +78,37 @@
     [ChartConfigUtilities removeAllAxisMarkingsFromChart:rangeChart];
     
     // Add some annotations
-    annotationManager = [[ShinobiRangeAnnotationManager alloc] initWithChart:rangeChart];
+    annotationManager = [[ShinobiRangeAnnotationManager alloc] initWithChart:rangeChart minimumSpan:minimumSpan];
     annotationManager.delegate = self;
     
     [self addSubview:rangeChart];
+}
+
+- (void)configureTheDefaultRange
+{
+    NSInteger numberPoints = [chartDatasource sChart:mainChart numberOfDataPointsForSeriesAtIndex:0];
+    // Let's make the default range the 4th 20% of data points
+    // NB: we're assuming here that the datapoints are in ascending order of x. This isn't
+    //  always true, but it is for our data set, so we'll live with it.
+    NSInteger startIndex = floor(numberPoints * 0.6);
+    NSInteger endIndex = floor(numberPoints * 0.8);
+    
+    // Find the correct points
+    SChartDataPoint *startPoint = [chartDatasource sChart:mainChart dataPointAtIndex:startIndex forSeriesAtIndex:0];
+    SChartDataPoint *endPoint = [chartDatasource sChart:mainChart dataPointAtIndex:endIndex forSeriesAtIndex:0];
+    
+    // Need to convert the datapoints to their internal representation - i.e. time interval floats
+    NSTimeInterval startTS = [((NSDate *)startPoint.xValue) timeIntervalSince1970];
+    NSTimeInterval endTS = [((NSDate *)endPoint.xValue) timeIntervalSince1970];
+    
+    SChartRange *defaultRange = [[SChartRange alloc] initWithMinimum:@(startTS) andMaximum:@(endTS)];
+    
+    // And now set the default range to this range
+    [mainChart.xAxis setDefaultRange:defaultRange];
+    [mainChart.xAxis resetZoomLevel];
+    
+    // And update the annotation appropriately
+    [annotationManager moveRangeSelectorToRange:defaultRange];
 }
 
 #pragma mark - ShinobiRangeSelectorDelegate methods
@@ -93,6 +127,14 @@
 
 - (void)sChartIsZooming:(ShinobiChart *)chart withChartMovementInformation:(const SChartMovementInformation *)information
 {
+    // We need to check that we haven't gone outside of our allowed span
+    if ([chart.xAxis.axisRange.span floatValue] < minimumSpan) {
+        // Re-zoom it
+        CGFloat midValue = [chart.xAxis.axisRange.span floatValue] / 2 + [chart.xAxis.axisRange.minimum floatValue];
+        CGFloat newMin = midValue - minimumSpan / 2;
+        CGFloat newMax = midValue + minimumSpan / 2;
+        [chart.xAxis setRangeWithMinimum:@(newMin) andMaximum:@(newMax)];
+    }
     [annotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
 }
 

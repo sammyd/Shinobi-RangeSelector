@@ -18,6 +18,7 @@
     SChartAnnotation *leftLine, *leftHandle, *rightHandle, *rightLine;
     SChartAnnotationZooming *leftShading, *rightShading, *rangeSelection;
     MomentumAnimation *momentumAnimation;
+    CGFloat minimumSpan;
 }
 
 @end
@@ -34,9 +35,15 @@
 
 - (id)initWithChart:(ShinobiChart *)_chart
 {
+    return [self initWithChart:_chart minimumSpan:3600*24];
+}
+
+- (id)initWithChart:(ShinobiChart *)_chart minimumSpan:(CGFloat)minSpan
+{
     self = [super init];
     if(self) {
         chart = _chart;
+        minimumSpan = minSpan;
         [self createAnnotations];
         [self prepareGestureRecognisers];
         // Let's make an animation instance here. We'll use this whenever we need momentum
@@ -151,9 +158,17 @@
     // Update the range with the new value according to which handle we dragged
     if(recogniser.view == leftHandle) {
         // Left handle => change the range minimum
+        // Check bounds
+        if([rightHandle.xValue floatValue] - newValue < minimumSpan) {
+            newValue = [rightHandle.xValue floatValue] - minimumSpan;
+        }
         newRange = [[SChartRange alloc] initWithMinimum:@(newValue) andMaximum:rightHandle.xValue];
     } else {
         // Right handle => change the range maximum
+        // Check bounds
+        if(newValue - [leftHandle.xValue floatValue] < minimumSpan) {
+            newValue = [leftHandle.xValue floatValue] + minimumSpan;
+        }
         newRange = [[SChartRange alloc] initWithMinimum:leftHandle.xValue andMaximum:@(newValue)];
     }
     

@@ -14,7 +14,8 @@
 
 @property (nonatomic, retain) id<ShinobiRangeAnnotationDelegate> delegate;
 
-- (id)initWithChart:(ShinobiChart*)chart;
-- (void)moveRangeSelectorToRange:(SChartRange*)range;
+- (id)initWithChart:(ShinobiChart *)chart;
+- (id)initWithChart:(ShinobiChart *)chart minimumSpan:(CGFloat)minSpan;
+- (void)moveRangeSelectorToRange:(SChartRange *)range;
 
 @end
