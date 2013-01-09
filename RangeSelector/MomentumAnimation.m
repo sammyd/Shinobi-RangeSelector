@@ -22,15 +22,22 @@
 
 - (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity updateBlock:(void (^)(CGFloat))updateBlock
 {
-    [self animateWithStartPosition:startPosition startVelocity:velocity updateBlock:updateBlock duration:0.3f];
+    [self animateWithStartPosition:startPosition
+                     startVelocity:velocity
+                          duration:0.3f
+                       updateBlock:updateBlock];
 }
 
-- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity updateBlock:(void (^)(CGFloat))updateBlock duration:(CGFloat)duration
+- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity duration:(CGFloat)duration updateBlock:(void (^)(CGFloat))updateBlock
 {
-    [self animateWithStartPosition:startPosition startVelocity:velocity updateBlock:updateBlock duration:duration animationCurve:SChartAnimationCurveEaseOut];
+    [self animateWithStartPosition:startPosition
+                     startVelocity:velocity
+                          duration:duration
+                    animationCurve:SChartAnimationCurveEaseOut
+                       updateBlock:updateBlock];
 }
 
-- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity updateBlock:(void (^)(CGFloat))updateBlock duration:(CGFloat)duration animationCurve:(SChartAnimationCurve)curve
+- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity duration:(CGFloat)duration animationCurve:(SChartAnimationCurve)curve updateBlock:(void (^)(CGFloat))updateBlock
 {
     /*
      Calculate the end position. The positions we are dealing with are proportions
@@ -64,6 +71,7 @@
 - (void)animationRecursion
 {
     if (CACurrentMediaTime() > animationStartTime + animationDuration) {
+        // We've finished the alloted animation time. Stop animating
         animating = NO;
     }
     
@@ -76,7 +84,7 @@
         // Call the block which will perform the repositioning
         positionUpdateBlock(currentPosition);
         
-        // Recurse
+        // Recurse. We aim here for 20 updates per second.
         [self performSelector:@selector(animationRecursion) withObject:nil afterDelay:0.05f];
     }
 }
