@@ -11,11 +11,13 @@
 #import "SChartAxis_IntExtTransforms.h"
 #import "ShinobiRangeHandleAnnotation.h"
 #import "ShinobiRangeSelectionAnnotation.h"
+#import "MomentumAnimation.h"
 
 @interface ShinobiRangeAnnotationManager ()<UIGestureRecognizerDelegate> {
     ShinobiChart *chart;
     SChartAnnotation *leftLine, *leftHandle, *rightHandle, *rightLine;
     SChartAnnotationZooming *leftShading, *rightShading, *rangeSelection;
+    MomentumAnimation *momentumAnimation;
 }
 
 @end
@@ -37,6 +39,7 @@
         chart = _chart;
         [self createAnnotations];
         [self prepareGestureRecognisers];
+        momentumAnimation = [MomentumAnimation new];
     }
     return self;
 }
@@ -93,29 +96,58 @@
 
 #pragma mark - Gesture events
 - (void)handlePan:(UIPanGestureRecognizer*)recogniser
-{
+{    
     // What's the pixel location of the touch?
     CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
     
-    // Now need to map this to the new data range required
-    double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
-    double newCentreValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:currentTouchPoint.x])] doubleValue];
-    double newMin = newCentreValue - range/2;
-    double newMax = newCentreValue + range/2;
-    
-    // Create the range
-    SChartRange *updatedRange = [[SChartRange alloc] initWithMinimum:@(newMin) andMaximum:@(newMax)];
-    // Move the annotation to the correct location
-    [self moveRangeSelectorToRange:updatedRange];
-    
-    // And fire the delegate method
-    if (self.delegate && [self.delegate respondsToSelector:@selector(rangeAnnotation:didMoveToRange:)]) {
-        [self.delegate rangeAnnotation:self didMoveToRange:updatedRange];
+    if (recogniser.state == UIGestureRecognizerStateEnded) {
+        // Work out some values required for the animation
+        // startPosition is in the range [0,1]
+        CGFloat startPosition = currentTouchPoint.x / chart.canvas.bounds.size.width;
+        // startVelocity should be between [-1,1]
+        CGFloat startVelocity = [recogniser velocityInView:chart.canvas].x / chart.canvas.bounds.size.width;
+
+        [momentumAnimation animateWithStartPosition:startPosition startVelocity:startVelocity updateBlock:^(CGFloat position) {
+            // This is the code which will get called to update the position
+            double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
+            CGFloat centrePixelLocation = position * chart.canvas.bounds.size.width;
+            double newCentreValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:centrePixelLocation])] doubleValue];
+            double newMin = newCentreValue - range/2;
+            double newMax = newCentreValue + range/2;
+            
+            // Create the range
+            SChartRange *updatedRange = [[SChartRange alloc] initWithMinimum:@(newMin) andMaximum:@(newMax)];
+            // Move the annotation to the correct location
+            // We use the internal method so we don't kill the momentum animator
+            [self internalMoveRangeSelectorToRange:updatedRange];
+            
+            // And fire the delegate method
+            if (self.delegate && [self.delegate respondsToSelector:@selector(rangeAnnotation:didMoveToRange:)]) {
+                [self.delegate rangeAnnotation:self didMoveToRange:updatedRange];
+            }
+        } duration:0.6f];
+        
+    } else {        
+        // Now need to map this to the new data range required
+        double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
+        double newCentreValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:currentTouchPoint.x])] doubleValue];
+        double newMin = newCentreValue - range/2;
+        double newMax = newCentreValue + range/2;
+        
+        // Create the range
+        SChartRange *updatedRange = [[SChartRange alloc] initWithMinimum:@(newMin) andMaximum:@(newMax)];
+        // Move the annotation to the correct location
+        [self moveRangeSelectorToRange:updatedRange];
+        
+        // And fire the delegate method
+        if (self.delegate && [self.delegate respondsToSelector:@selector(rangeAnnotation:didMoveToRange:)]) {
+            [self.delegate rangeAnnotation:self didMoveToRange:updatedRange];
+        }
     }
 }
 
 - (void)handleHandlePan:(UIPanGestureRecognizer*)recogniser
-{
+{    
     CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
     
     double newValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:currentTouchPoint.x])] doubleValue];
@@ -139,6 +171,15 @@
 
 #pragma mark - API Methods
 - (void)moveRangeSelectorToRange:(SChartRange *)range
+{
+    // If called externally then we want to kill momentum
+    [momentumAnimation stopAnimation];
+    
+    // Now perform the move
+    [self internalMoveRangeSelectorToRange:range];
+}
+
+- (void)internalMoveRangeSelectorToRange:(SChartRange *)range
 {
     leftLine.xValue = range.minimum;
     rightLine.xValue = range.maximum;

@@ -40,6 +40,7 @@
 		2266CACD168A35A9006AEC44 /* ChartConfigUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */; };
 		2266CAD1168A3B75006AEC44 /* ShinobiRangeAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */; };
 		2266CADC168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */; };
+		227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 227056AD169BD83800799D62 /* MomentumAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChartAxis_IntExtTransforms.h; sourceTree = "<group>"; };
 		2266CADA168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeHandleAnnotation.h; sourceTree = "<group>"; };
 		2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeHandleAnnotation.m; sourceTree = "<group>"; };
+		227056AC169BD83800799D62 /* MomentumAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentumAnimation.h; sourceTree = "<group>"; };
+		227056AD169BD83800799D62 /* MomentumAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentumAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +237,8 @@
 				2266CAB01689FA16006AEC44 /* ShinobiLicense.m */,
 				2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */,
 				2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */,
+				227056AC169BD83800799D62 /* MomentumAnimation.h */,
+				227056AD169BD83800799D62 /* MomentumAnimation.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 				2266CAD1168A3B75006AEC44 /* ShinobiRangeAnnotationManager.m in Sources */,
 				2266CADC168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m in Sources */,
 				223E27221690333400568319 /* ShinobiRangeSelectionAnnotation.m in Sources */,
+				227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
