@@ -10,12 +10,14 @@
 #import "ShinobiLicense.h"
 #import "ChartConfigUtilities.h"
 #import "ShinobiRangeAnnotationManager.h"
+#import "ShinobiValueAnnotationManager.h"
 
 @interface ShinobiRangeSelector () <ShinobiRangeAnnotationDelegate> {
     id<SChartDatasource> chartDatasource;
     ShinobiChart *mainChart;
     ShinobiChart *rangeChart;
-    ShinobiRangeAnnotationManager *annotationManager;
+    ShinobiRangeAnnotationManager *rangeAnnotationManager;
+    ShinobiValueAnnotationManager *valueAnnotationManager;
     CGFloat minimumSpan;
 }
 
@@ -62,6 +64,9 @@
     
     // We use ourself as the chart delegate to get zoom/pan details
     mainChart.delegate = self;
+    
+    // Add some annotations
+    valueAnnotationManager = [[ShinobiValueAnnotationManager alloc] initWithChart:mainChart seriesIndex:0];
 
     [self addSubview:mainChart];
 }
@@ -78,8 +83,8 @@
     [ChartConfigUtilities removeAllAxisMarkingsFromChart:rangeChart];
     
     // Add some annotations
-    annotationManager = [[ShinobiRangeAnnotationManager alloc] initWithChart:rangeChart minimumSpan:minimumSpan];
-    annotationManager.delegate = self;
+    rangeAnnotationManager = [[ShinobiRangeAnnotationManager alloc] initWithChart:rangeChart minimumSpan:minimumSpan];
+    rangeAnnotationManager.delegate = self;
     
     [self addSubview:rangeChart];
 }
@@ -108,13 +113,16 @@
     [mainChart.xAxis resetZoomLevel];
     
     // And update the annotation appropriately
-    [annotationManager moveRangeSelectorToRange:defaultRange];
+    [rangeAnnotationManager moveRangeSelectorToRange:defaultRange];
+    [valueAnnotationManager updateValueAnnotationForXAxisRange:defaultRange];
 }
 
 #pragma mark - ShinobiRangeSelectorDelegate methods
 - (void)rangeAnnotation:(ShinobiRangeAnnotationManager *)annotation didMoveToRange:(SChartRange *)range
 {
     [mainChart.xAxis setRangeWithMinimum:range.minimum andMaximum:range.maximum];
+    // Update the location of the annotation line
+    [valueAnnotationManager updateValueAnnotationForXAxisRange:range];
     [mainChart redrawChart];
 }
 
@@ -122,7 +130,8 @@
 #pragma mark - SChartDelegate methods
 - (void)sChartIsPanning:(ShinobiChart *)chart withChartMovementInformation:(const SChartMovementInformation *)information
 {
-    [annotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
+    [rangeAnnotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
+    [valueAnnotationManager updateValueAnnotationForXAxisRange:chart.xAxis.axisRange];
 }
 
 - (void)sChartIsZooming:(ShinobiChart *)chart withChartMovementInformation:(const SChartMovementInformation *)information
@@ -135,7 +144,8 @@
         CGFloat newMax = midValue + minimumSpan / 2;
         [chart.xAxis setRangeWithMinimum:@(newMin) andMaximum:@(newMax)];
     }
-    [annotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
+    [rangeAnnotationManager moveRangeSelectorToRange:chart.xAxis.axisRange];
+    [valueAnnotationManager updateValueAnnotationForXAxisRange:chart.xAxis.axisRange];
 }
 
 @end

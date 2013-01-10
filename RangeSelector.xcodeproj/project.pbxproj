@@ -41,6 +41,9 @@
 		2266CAD1168A3B75006AEC44 /* ShinobiRangeAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */; };
 		2266CADC168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */; };
 		227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 227056AD169BD83800799D62 /* MomentumAnimation.m */; };
+		229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */; };
+		229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */; };
+		229EE42E169E73E600EBF0BF /* NSArray+BinarySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,12 @@
 		2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeHandleAnnotation.m; sourceTree = "<group>"; };
 		227056AC169BD83800799D62 /* MomentumAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentumAnimation.h; sourceTree = "<group>"; };
 		227056AD169BD83800799D62 /* MomentumAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentumAnimation.m; sourceTree = "<group>"; };
+		229EE425169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiValueAnnotationManager.h; sourceTree = "<group>"; };
+		229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiValueAnnotationManager.m; sourceTree = "<group>"; };
+		229EE428169E6CD400EBF0BF /* NSArray+BinarySearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearch.h"; sourceTree = "<group>"; };
+		229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
+		229EE42C169E73E600EBF0BF /* NSArray+BinarySearchTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearchTests.h"; sourceTree = "<group>"; };
+		229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearchTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +212,7 @@
 		2266CA921689F70B006AEC44 /* RangeSelectorTests */ = {
 			isa = PBXGroup;
 			children = (
+				229EE42B169E73AC00EBF0BF /* Utilities */,
 				2266CA981689F70B006AEC44 /* RangeSelectorTests.h */,
 				2266CA991689F70B006AEC44 /* RangeSelectorTests.m */,
 				2266CA931689F70B006AEC44 /* Supporting Files */,
@@ -239,6 +249,8 @@
 				2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */,
 				227056AC169BD83800799D62 /* MomentumAnimation.h */,
 				227056AD169BD83800799D62 /* MomentumAnimation.m */,
+				229EE428169E6CD400EBF0BF /* NSArray+BinarySearch.h */,
+				229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -265,6 +277,7 @@
 		2266CABE168A0263006AEC44 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				229EE423169DB9C600EBF0BF /* ValuePointer */,
 				2266CACE168A3B26006AEC44 /* RangeAnnotations */,
 				2266CABF168A0280006AEC44 /* ChartDatasource.h */,
 				2266CAC0168A0280006AEC44 /* ChartDatasource.m */,
@@ -288,6 +301,24 @@
 				223E27211690333400568319 /* ShinobiRangeSelectionAnnotation.m */,
 			);
 			name = RangeAnnotations;
+			sourceTree = "<group>";
+		};
+		229EE423169DB9C600EBF0BF /* ValuePointer */ = {
+			isa = PBXGroup;
+			children = (
+				229EE425169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.h */,
+				229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */,
+			);
+			name = ValuePointer;
+			sourceTree = "<group>";
+		};
+		229EE42B169E73AC00EBF0BF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				229EE42C169E73E600EBF0BF /* NSArray+BinarySearchTests.h */,
+				229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +448,8 @@
 				2266CADC168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m in Sources */,
 				223E27221690333400568319 /* ShinobiRangeSelectionAnnotation.m in Sources */,
 				227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */,
+				229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */,
+				229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2266CA9A1689F70B006AEC44 /* RangeSelectorTests.m in Sources */,
+				229EE42E169E73E600EBF0BF /* NSArray+BinarySearchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
