@@ -28,10 +28,6 @@
 		2266CAAD1689F97D006AEC44 /* TemperatureDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAAC1689F97D006AEC44 /* TemperatureDataPoint.m */; };
 		2266CAB11689FA16006AEC44 /* ShinobiLicense.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAB01689FA16006AEC44 /* ShinobiLicense.m */; };
 		2266CAB31689FAA6006AEC44 /* RangeSelectorSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */; };
-		2266CABA168A01FC006AEC44 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB6168A01FC006AEC44 /* Nunito-Bold.ttf */; };
-		2266CABB168A01FC006AEC44 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB7168A01FC006AEC44 /* Nunito-Light.ttf */; };
-		2266CABC168A01FC006AEC44 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2266CAB8168A01FC006AEC44 /* Nunito-Regular.ttf */; };
-		2266CABD168A01FC006AEC44 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAB9168A01FC006AEC44 /* ShinobiCharts.framework */; };
 		2266CAC1168A0280006AEC44 /* ChartDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266CAC0168A0280006AEC44 /* ChartDatasource.m */; };
 		2266CAC3168A05E2006AEC44 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC2168A05E2006AEC44 /* QuartzCore.framework */; };
 		2266CAC5168A05E8006AEC44 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2266CAC4168A05E8006AEC44 /* Security.framework */; };
@@ -44,6 +40,10 @@
 		229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */; };
 		229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */; };
 		229EE42E169E73E600EBF0BF /* NSArray+BinarySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */; };
+		229EE435169EDA5D00EBF0BF /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 229EE431169EDA5D00EBF0BF /* Nunito-Bold.ttf */; };
+		229EE436169EDA5D00EBF0BF /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 229EE432169EDA5D00EBF0BF /* Nunito-Light.ttf */; };
+		229EE437169EDA5D00EBF0BF /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 229EE433169EDA5D00EBF0BF /* Nunito-Regular.ttf */; };
+		229EE438169EDA5D00EBF0BF /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EE434169EDA5D00EBF0BF /* ShinobiCharts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,10 +88,6 @@
 		2266CAAF1689FA16006AEC44 /* ShinobiLicense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiLicense.h; sourceTree = "<group>"; };
 		2266CAB01689FA16006AEC44 /* ShinobiLicense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiLicense.m; sourceTree = "<group>"; };
 		2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RangeSelectorSettings.plist; sourceTree = "<group>"; };
-		2266CAB6168A01FC006AEC44 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		2266CAB7168A01FC006AEC44 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
-		2266CAB8168A01FC006AEC44 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
-		2266CAB9168A01FC006AEC44 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
 		2266CABF168A0280006AEC44 /* ChartDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDatasource.h; sourceTree = "<group>"; };
 		2266CAC0168A0280006AEC44 /* ChartDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartDatasource.m; sourceTree = "<group>"; };
 		2266CAC2168A05E2006AEC44 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -115,6 +111,10 @@
 		229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
 		229EE42C169E73E600EBF0BF /* NSArray+BinarySearchTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearchTests.h"; sourceTree = "<group>"; };
 		229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearchTests.m"; sourceTree = "<group>"; };
+		229EE431169EDA5D00EBF0BF /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		229EE432169EDA5D00EBF0BF /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		229EE433169EDA5D00EBF0BF /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		229EE434169EDA5D00EBF0BF /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				2266CA691689F70B006AEC44 /* UIKit.framework in Frameworks */,
 				2266CA6B1689F70B006AEC44 /* Foundation.framework in Frameworks */,
 				2266CA6D1689F70B006AEC44 /* CoreGraphics.framework in Frameworks */,
-				2266CABD168A01FC006AEC44 /* ShinobiCharts.framework in Frameworks */,
+				229EE438169EDA5D00EBF0BF /* ShinobiCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,10 +167,10 @@
 		2266CA671689F70B006AEC44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				229EE42F169EDA5D00EBF0BF /* ShinobiCharts.embeddedframework */,
 				2266CAC6168A05EE006AEC44 /* OpenGLES.framework */,
 				2266CAC4168A05E8006AEC44 /* Security.framework */,
 				2266CAC2168A05E2006AEC44 /* QuartzCore.framework */,
-				2266CAB4168A01FC006AEC44 /* ShinobiCharts.embeddedframework */,
 				2266CA681689F70B006AEC44 /* UIKit.framework */,
 				2266CA6A1689F70B006AEC44 /* Foundation.framework */,
 				2266CA6C1689F70B006AEC44 /* CoreGraphics.framework */,
@@ -255,25 +255,6 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		2266CAB4168A01FC006AEC44 /* ShinobiCharts.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				2266CAB5168A01FC006AEC44 /* Resources */,
-				2266CAB9168A01FC006AEC44 /* ShinobiCharts.framework */,
-			);
-			path = ShinobiCharts.embeddedframework;
-			sourceTree = "<group>";
-		};
-		2266CAB5168A01FC006AEC44 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2266CAB6168A01FC006AEC44 /* Nunito-Bold.ttf */,
-				2266CAB7168A01FC006AEC44 /* Nunito-Light.ttf */,
-				2266CAB8168A01FC006AEC44 /* Nunito-Regular.ttf */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		2266CABE168A0263006AEC44 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +300,25 @@
 				229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		229EE42F169EDA5D00EBF0BF /* ShinobiCharts.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				229EE430169EDA5D00EBF0BF /* Resources */,
+				229EE434169EDA5D00EBF0BF /* ShinobiCharts.framework */,
+			);
+			path = ShinobiCharts.embeddedframework;
+			sourceTree = "<group>";
+		};
+		229EE430169EDA5D00EBF0BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				229EE431169EDA5D00EBF0BF /* Nunito-Bold.ttf */,
+				229EE432169EDA5D00EBF0BF /* Nunito-Light.ttf */,
+				229EE433169EDA5D00EBF0BF /* Nunito-Regular.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,9 +398,9 @@
 				2266CA7F1689F70B006AEC44 /* Default-568h@2x.png in Resources */,
 				2266CA821689F70B006AEC44 /* MainStoryboard.storyboard in Resources */,
 				2266CAB31689FAA6006AEC44 /* RangeSelectorSettings.plist in Resources */,
-				2266CABA168A01FC006AEC44 /* Nunito-Bold.ttf in Resources */,
-				2266CABB168A01FC006AEC44 /* Nunito-Light.ttf in Resources */,
-				2266CABC168A01FC006AEC44 /* Nunito-Regular.ttf in Resources */,
+				229EE435169EDA5D00EBF0BF /* Nunito-Bold.ttf in Resources */,
+				229EE436169EDA5D00EBF0BF /* Nunito-Light.ttf in Resources */,
+				229EE437169EDA5D00EBF0BF /* Nunito-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
