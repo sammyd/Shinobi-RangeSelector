@@ -12,7 +12,7 @@
 
 @interface ShinobiRangeAnnotationManager : NSObject
 
-@property (nonatomic, retain) id<ShinobiRangeAnnotationDelegate> delegate;
+@property (nonatomic, strong) id<ShinobiRangeAnnotationDelegate> delegate;
 
 - (id)initWithChart:(ShinobiChart *)chart;
 - (id)initWithChart:(ShinobiChart *)chart minimumSpan:(CGFloat)minSpan;

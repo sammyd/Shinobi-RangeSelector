@@ -10,7 +10,7 @@
 
 @interface TemperatureData : NSObject
 
-@property (nonatomic, retain) NSArray *data;
+@property (nonatomic, strong) NSArray *data;
 
 + (TemperatureData*)sharedInstance;
 

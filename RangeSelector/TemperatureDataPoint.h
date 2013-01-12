@@ -10,8 +10,8 @@
 
 @interface TemperatureDataPoint : NSObject
 
-@property (nonatomic, retain) NSDate   *timestamp;
-@property (nonatomic, retain) NSNumber *temperature;
+@property (nonatomic, strong) NSDate   *timestamp;
+@property (nonatomic, strong) NSNumber *temperature;
 
 - (id)initWithDate:(NSDate*)date temperature:(NSNumber*)temperature;
 
