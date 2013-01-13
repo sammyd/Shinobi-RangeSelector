@@ -15,7 +15,7 @@
 
 @interface ShinobiRangeAnnotationManager ()<UIGestureRecognizerDelegate> {
     ShinobiChart *chart;
-    SChartAnnotation *leftLine, *leftHandle, *rightHandle, *rightLine;
+    SChartAnnotation *leftLine, *leftGripper, *rightGripper, *rightLine;
     SChartAnnotationZooming *leftShading, *rightShading, *rangeSelection;
     MomentumAnimation *momentumAnimation;
     CGFloat minimumSpan;
@@ -64,8 +64,8 @@
     // The invisible range selection
     rangeSelection = [[ShinobiRangeSelectionAnnotation alloc] initWithFrame:CGRectMake(0, 0, 1, 1) xValue:chart.xAxis.axisRange.minimum xValueMax:chart.xAxis.axisRange.maximum xAxis:chart.xAxis yAxis:chart.yAxis];
     // Create the handles
-    leftHandle = [[ShinobiRangeHandleAnnotation alloc] initWithFrame:CGRectMake(0, 0, 30, 80) colour:[UIColor colorWithWhite:0.2 alpha:1.f] xValue:chart.xAxis.axisRange.minimum xAxis:chart.xAxis yAxis:chart.yAxis];
-    rightHandle = [[ShinobiRangeHandleAnnotation alloc] initWithFrame:CGRectMake(0, 0, 30, 80) colour:[UIColor colorWithWhite:0.2 alpha:1.f] xValue:chart.xAxis.axisRange.maximum xAxis:chart.xAxis yAxis:chart.yAxis];
+    leftGripper = [[ShinobiRangeHandleAnnotation alloc] initWithFrame:CGRectMake(0, 0, 30, 80) colour:[UIColor colorWithWhite:0.2 alpha:1.f] xValue:chart.xAxis.axisRange.minimum xAxis:chart.xAxis yAxis:chart.yAxis];
+    rightGripper = [[ShinobiRangeHandleAnnotation alloc] initWithFrame:CGRectMake(0, 0, 30, 80) colour:[UIColor colorWithWhite:0.2 alpha:1.f] xValue:chart.xAxis.axisRange.maximum xAxis:chart.xAxis yAxis:chart.yAxis];
     
     
     // Add the annotations to the chart
@@ -75,8 +75,8 @@
     [chart addAnnotation:rightShading];
     [chart addAnnotation:rangeSelection];
     // Add the handles on top so they take gesture priority.
-    [chart addAnnotation:leftHandle];
-    [chart addAnnotation:rightHandle];
+    [chart addAnnotation:leftGripper];
+    [chart addAnnotation:rightGripper];
 }
 
 - (void)prepareGestureRecognisers
@@ -97,10 +97,10 @@
     [rangeSelection addGestureRecognizer:gestureRecogniser];
     
     // And pan gesture recognisers for the 2 handles on the range selector
-    UIPanGestureRecognizer *leftHandleRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleHandlePan:)];
-    [leftHandle addGestureRecognizer:leftHandleRecogniser];
-    UIPanGestureRecognizer *rightHandleRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleHandlePan:)];
-    [rightHandle addGestureRecognizer:rightHandleRecogniser];
+    UIPanGestureRecognizer *leftGripperRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGripperPan:)];
+    [leftGripper addGestureRecognizer:leftGripperRecogniser];
+    UIPanGestureRecognizer *rightGripperRecogniser = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGripperPan:)];
+    [rightGripper addGestureRecognizer:rightGripperRecogniser];
 }
 
 #pragma mark - Gesture events
@@ -147,7 +147,7 @@
     }
 }
 
-- (void)handleHandlePan:(UIPanGestureRecognizer*)recogniser
+- (void)handleGripperPan:(UIPanGestureRecognizer*)recogniser
 {    
     CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
     
@@ -156,20 +156,20 @@
     
     SChartRange *newRange;
     // Update the range with the new value according to which handle we dragged
-    if(recogniser.view == leftHandle) {
+    if(recogniser.view == leftGripper) {
         // Left handle => change the range minimum
         // Check bounds
-        if([rightHandle.xValue floatValue] - newValue < minimumSpan) {
-            newValue = [rightHandle.xValue floatValue] - minimumSpan;
+        if([rightGripper.xValue floatValue] - newValue < minimumSpan) {
+            newValue = [rightGripper.xValue floatValue] - minimumSpan;
         }
-        newRange = [[SChartRange alloc] initWithMinimum:@(newValue) andMaximum:rightHandle.xValue];
+        newRange = [[SChartRange alloc] initWithMinimum:@(newValue) andMaximum:rightGripper.xValue];
     } else {
         // Right handle => change the range maximum
         // Check bounds
-        if(newValue - [leftHandle.xValue floatValue] < minimumSpan) {
-            newValue = [leftHandle.xValue floatValue] + minimumSpan;
+        if(newValue - [leftGripper.xValue floatValue] < minimumSpan) {
+            newValue = [leftGripper.xValue floatValue] + minimumSpan;
         }
-        newRange = [[SChartRange alloc] initWithMinimum:leftHandle.xValue andMaximum:@(newValue)];
+        newRange = [[SChartRange alloc] initWithMinimum:leftGripper.xValue andMaximum:@(newValue)];
     }
     
     // Move the selector
@@ -226,8 +226,8 @@
     leftShading.xValueMax = range.minimum;
     rightShading.xValue = range.maximum;
     rightShading.xValueMax = chart.xAxis.axisRange.maximum;
-    leftHandle.xValue = range.minimum;
-    rightHandle.xValue = range.maximum;
+    leftGripper.xValue = range.minimum;
+    rightGripper.xValue = range.maximum;
     rangeSelection.xValue = range.minimum;
     rangeSelection.xValueMax = range.maximum;
     
