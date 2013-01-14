@@ -2,7 +2,7 @@
 ShinobiCharts.embeddedframework
 
 # We ignore the settings file too
-ConAir/ConAirSettings.plist
+RangeSelector/RangeSelectorSettings.plist
 
 .DS_Store
 *~
