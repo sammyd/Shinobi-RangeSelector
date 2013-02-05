@@ -2,7 +2,7 @@
 ShinobiCharts.embeddedframework
 
 # We ignore the settings file too
-RangeSelector/RangeSelectorSettings.plist
+RangeSelector/RangeSelectorSettings.sample.plist
 
 .DS_Store
 *~

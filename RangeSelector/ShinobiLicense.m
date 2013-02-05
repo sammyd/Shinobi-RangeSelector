@@ -19,11 +19,15 @@
      you can just make this method return it.
      */
     
-    //return @"YOUR CODE HERE";
-    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"RangeSelectorSettings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
-    return settings[@"ShinobiChartsLicenseKey"];
+    NSString *key = settings[@"ShinobiChartsLicenseKey"];
+    if(key && [key isEqualToString:@""]) {
+        return key;
+    }
+    
+    // If you don't want to use the sample plist provided, pop your code below
+    return @"YOUR CODE HERE";
 }
 
 @end

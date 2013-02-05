@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import os
+
+hooks_dir = os.path.dirname(os.path.abspath(__file__))
+relative_dir = os.path.join(hooks_dir, '../..')
+project_root = os.path.abspath(relative_dir)
+
+git_included_config = os.path.join(project_root, 'RangeSelector', 'RangeSelectorSettings.plist')
+confidential_config = os.path.join(project_root, 'RangeSelector', 'RangeSelectorSettings.sample.plist')
+
+with open(git_included_config, 'rU') as fh:
+  git_included_contents = fh.read()
+
+with open(confidential_config, 'rU') as fh:
+  confidential_contents = fh.read()
+
+with open(git_included_config, 'w') as fh:
+  fh.write(confidential_contents)
+
+with open(confidential_config, 'w') as fh:
+  fh.write(git_included_contents)
