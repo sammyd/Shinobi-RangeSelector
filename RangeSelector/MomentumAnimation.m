@@ -64,11 +64,11 @@
     animationDuration = duration;
     animationCurve = curve;
     animating = YES;
-    [self animationRecursion];
+    [self continueAnimation];
     
 }
 
-- (void)animationRecursion
+- (void)continueAnimation
 {
     if (CACurrentMediaTime() > animationStartTime + animationDuration) {
         // We've finished the alloted animation time. Stop animating
@@ -85,7 +85,7 @@
         positionUpdateBlock(currentPosition);
         
         // Recurse. We aim here for 20 updates per second.
-        [self performSelector:@selector(animationRecursion) withObject:nil afterDelay:0.05f];
+        [self performSelector:@selector(continueAnimation) withObject:nil afterDelay:0.05f];
     }
 }
 
