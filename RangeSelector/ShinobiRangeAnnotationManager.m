@@ -126,6 +126,9 @@
             
             // Create the range
             SChartRange *updatedRange = [self rangeCentredOnPixelValue:centrePixelLocation];
+                                            
+            // Ensure that this newly created range is within the bounds of the chart
+            updatedRange = [self ensureWithinChartBounds:updatedRange maintainingSpan:YES];
             
             // Move the annotation to the correct location
             // We use the internal method so we don't kill the momentum animator
@@ -138,6 +141,9 @@
     } else {                
         // Create the range
         SChartRange *updatedRange = [self rangeCentredOnPixelValue:currentTouchPoint.x];
+        
+        // Ensure that this newly created range is within the bounds of the chart
+        updatedRange = [self ensureWithinChartBounds:updatedRange maintainingSpan:YES];
         
         // Move the annotation to the correct location
         [self moveRangeSelectorToRange:updatedRange];
@@ -172,6 +178,9 @@
         newRange = [[SChartRange alloc] initWithMinimum:leftGripper.xValue andMaximum:@(newValue)];
     }
     
+    // Ensure that this newly created range is within the bounds of the chart
+    newRange = [self ensureWithinChartBounds:newRange maintainingSpan:NO];
+    
     // Move the selector
     [self moveRangeSelectorToRange:newRange];
     
@@ -201,6 +210,36 @@
     
     // Create the range and return it
     return [[SChartRange alloc] initWithMinimum:@(newMin) andMaximum:@(newMax)];
+}
+
+- (SChartRange*)ensureWithinChartBounds:(SChartRange*)range maintainingSpan:(BOOL)maintainSpan
+{
+    // If the requested range is bigger than the available, then reset to min/max
+    if([range.span compare:chart.xAxis.axisRange.span] == NSOrderedDescending) {
+        return [SChartRange rangeWithRange:chart.xAxis.axisRange];
+    }
+    
+    if([range.minimum compare:chart.xAxis.axisRange.minimum] == NSOrderedAscending) {
+        // Min is below axis range
+        if(maintainSpan) {
+            CGFloat difference = [chart.xAxis.axisRange.minimum doubleValue] - [range.minimum doubleValue];
+            return [[SChartRange alloc] initWithMinimum:chart.xAxis.axisRange.minimum andMaximum:@([range.maximum doubleValue] + difference)];
+        } else {
+            return [[SChartRange alloc] initWithMinimum:chart.xAxis.axisRange.minimum andMaximum:range.maximum];
+        }
+    }
+    
+    if([range.maximum compare:chart.xAxis.axisRange.maximum] == NSOrderedDescending) {
+        // Max is above axis range
+        if(maintainSpan) {
+            CGFloat difference = [range.maximum doubleValue] - [chart.xAxis.axisRange.maximum doubleValue];
+            return [[SChartRange alloc] initWithMinimum:@([range.minimum doubleValue] - difference) andMaximum:chart.xAxis.axisRange.maximum];
+        } else {
+            return [[SChartRange alloc] initWithMinimum:range.minimum andMaximum:chart.xAxis.axisRange.maximum];
+        }
+    }
+    
+    return range;
 }
 
 
