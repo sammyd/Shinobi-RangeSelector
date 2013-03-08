@@ -8,7 +8,6 @@
 
 #import "ShinobiValueAnnotationManager.h"
 #import "NSArray+BinarySearch.h"
-#import "SChartAxis_IntExtTransforms.h"
 
 @interface ShinobiValueAnnotationManager () {
     ShinobiChart *chart;
@@ -49,7 +48,7 @@
 {
     // The new x-value we need the y-value for. We need to transform to the internal
     //  scaling because we are going to use the interal datapoint array for lookups
-    id newXValue = [chart.xAxis transformValueToInternal:range.maximum];
+    id newXValue = range.maximum;//[chart.xAxis transformValueToInternal:range.maximum];
     
     if (chart.allChartSeries.count > seriesIndex) {
         // Need to find the y-value at this point

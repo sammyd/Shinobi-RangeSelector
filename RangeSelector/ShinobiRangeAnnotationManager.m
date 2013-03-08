@@ -8,10 +8,10 @@
 
 #import "ShinobiRangeAnnotationManager.h"
 #import <ShinobiCharts/SChartCanvas.h>
-#import "SChartAxis_IntExtTransforms.h"
 #import "ShinobiRangeHandleAnnotation.h"
 #import "ShinobiRangeSelectionAnnotation.h"
 #import "MomentumAnimation.h"
+#import "SChartAxis+CoordinateSpaceConversion.h"
 
 @interface ShinobiRangeAnnotationManager ()<UIGestureRecognizerDelegate> {
     ShinobiChart *chart;
@@ -107,14 +107,14 @@
 - (void)handlePan:(UIPanGestureRecognizer*)recogniser
 {    
     // What's the pixel location of the touch?
-    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
+    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas.glView];
     
     if (recogniser.state == UIGestureRecognizerStateEnded) {
         // Work out some values required for the animation
         // startPosition is normalised so in range [0,1]
-        CGFloat startPosition = currentTouchPoint.x / chart.canvas.bounds.size.width;
+        CGFloat startPosition = currentTouchPoint.x / chart.canvas.glView.bounds.size.width;
         // startVelocity should be normalised as well
-        CGFloat startVelocity = [recogniser velocityInView:chart.canvas].x / chart.canvas.bounds.size.width;
+        CGFloat startVelocity = [recogniser velocityInView:chart.canvas.glView].x / chart.canvas.glView.bounds.size.width;
 
         // Use the momentum animator instance we have to start animating the annotation
         [momentumAnimation animateWithStartPosition:startPosition
@@ -149,10 +149,10 @@
 
 - (void)handleGripperPan:(UIPanGestureRecognizer*)recogniser
 {    
-    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas];
+    CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas.glView];
     
     // What's the new location we've dragged the handle to?
-    double newValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:currentTouchPoint.x])] doubleValue];
+    double newValue = [[chart.xAxis estimateDataValueForPixelValue:currentTouchPoint.x] doubleValue];
     
     SChartRange *newRange;
     // Update the range with the new value according to which handle we dragged
@@ -194,7 +194,7 @@
     // Find the extent of the current range
     double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
     // Find the new centre location
-    double newCentreValue = [[chart.xAxis transformValueToExternal:@([chart.xAxis mapDataValueForPixelValue:pixelValue])] doubleValue];
+    double newCentreValue = [[chart.xAxis estimateDataValueForPixelValue:pixelValue] doubleValue];
     // Calculate the new limits
     double newMin = newCentreValue - range/2;
     double newMax = newCentreValue + range/2;

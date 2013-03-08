@@ -40,10 +40,11 @@
 		229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */; };
 		229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */; };
 		229EE42E169E73E600EBF0BF /* NSArray+BinarySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */; };
-		229EE435169EDA5D00EBF0BF /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 229EE431169EDA5D00EBF0BF /* Nunito-Bold.ttf */; };
-		229EE436169EDA5D00EBF0BF /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 229EE432169EDA5D00EBF0BF /* Nunito-Light.ttf */; };
-		229EE437169EDA5D00EBF0BF /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 229EE433169EDA5D00EBF0BF /* Nunito-Regular.ttf */; };
-		229EE438169EDA5D00EBF0BF /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EE434169EDA5D00EBF0BF /* ShinobiCharts.framework */; };
+		F47308A416EA015C001D0710 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A016EA015C001D0710 /* Nunito-Bold.ttf */; };
+		F47308A516EA015C001D0710 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A116EA015C001D0710 /* Nunito-Light.ttf */; };
+		F47308A616EA015C001D0710 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A216EA015C001D0710 /* Nunito-Regular.ttf */; };
+		F47308A716EA015C001D0710 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47308A316EA015C001D0710 /* ShinobiCharts.framework */; };
+		F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +101,6 @@
 		2266CACF168A3B74006AEC44 /* ShinobiRangeAnnotationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeAnnotationManager.h; sourceTree = "<group>"; };
 		2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeAnnotationManager.m; sourceTree = "<group>"; };
 		2266CAD2168CA82A006AEC44 /* ShinobiRangeAnnotationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeAnnotationDelegate.h; sourceTree = "<group>"; };
-		2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChartAxis_IntExtTransforms.h; sourceTree = "<group>"; };
 		2266CADA168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeHandleAnnotation.h; sourceTree = "<group>"; };
 		2266CADB168E9EEC006AEC44 /* ShinobiRangeHandleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeHandleAnnotation.m; sourceTree = "<group>"; };
 		227056AC169BD83800799D62 /* MomentumAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentumAnimation.h; sourceTree = "<group>"; };
@@ -111,10 +111,12 @@
 		229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
 		229EE42C169E73E600EBF0BF /* NSArray+BinarySearchTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearchTests.h"; sourceTree = "<group>"; };
 		229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearchTests.m"; sourceTree = "<group>"; };
-		229EE431169EDA5D00EBF0BF /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
-		229EE432169EDA5D00EBF0BF /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
-		229EE433169EDA5D00EBF0BF /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
-		229EE434169EDA5D00EBF0BF /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		F47308A016EA015C001D0710 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		F47308A116EA015C001D0710 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		F47308A216EA015C001D0710 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		F47308A316EA015C001D0710 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
+		F47308A916EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SChartAxis+CoordinateSpaceConversion.h"; sourceTree = "<group>"; };
+		F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SChartAxis+CoordinateSpaceConversion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +130,7 @@
 				2266CA691689F70B006AEC44 /* UIKit.framework in Frameworks */,
 				2266CA6B1689F70B006AEC44 /* Foundation.framework in Frameworks */,
 				2266CA6D1689F70B006AEC44 /* CoreGraphics.framework in Frameworks */,
-				229EE438169EDA5D00EBF0BF /* ShinobiCharts.framework in Frameworks */,
+				F47308A716EA015C001D0710 /* ShinobiCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +169,7 @@
 		2266CA671689F70B006AEC44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				229EE42F169EDA5D00EBF0BF /* ShinobiCharts.embeddedframework */,
+				F473089E16EA015C001D0710 /* ShinobiCharts.embeddedframework */,
 				2266CAC6168A05EE006AEC44 /* OpenGLES.framework */,
 				2266CAC4168A05E8006AEC44 /* Security.framework */,
 				2266CAC2168A05E2006AEC44 /* QuartzCore.framework */,
@@ -246,7 +248,6 @@
 				2266CAAF1689FA16006AEC44 /* ShinobiLicense.h */,
 				2266CAB01689FA16006AEC44 /* ShinobiLicense.m */,
 				2266CAB21689FAA6006AEC44 /* RangeSelectorSettings.plist */,
-				2266CAD3168D5991006AEC44 /* SChartAxis_IntExtTransforms.h */,
 				227056AC169BD83800799D62 /* MomentumAnimation.h */,
 				227056AD169BD83800799D62 /* MomentumAnimation.m */,
 				229EE428169E6CD400EBF0BF /* NSArray+BinarySearch.h */,
@@ -258,6 +259,7 @@
 		2266CABE168A0263006AEC44 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				F47308A816EA02D9001D0710 /* Axis Utilities */,
 				229EE423169DB9C600EBF0BF /* ValuePointer */,
 				2266CACE168A3B26006AEC44 /* RangeAnnotations */,
 				2266CABF168A0280006AEC44 /* ChartDatasource.h */,
@@ -302,23 +304,32 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		229EE42F169EDA5D00EBF0BF /* ShinobiCharts.embeddedframework */ = {
+		F473089E16EA015C001D0710 /* ShinobiCharts.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
-				229EE430169EDA5D00EBF0BF /* Resources */,
-				229EE434169EDA5D00EBF0BF /* ShinobiCharts.framework */,
+				F473089F16EA015C001D0710 /* Resources */,
+				F47308A316EA015C001D0710 /* ShinobiCharts.framework */,
 			);
 			path = ShinobiCharts.embeddedframework;
 			sourceTree = "<group>";
 		};
-		229EE430169EDA5D00EBF0BF /* Resources */ = {
+		F473089F16EA015C001D0710 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				229EE431169EDA5D00EBF0BF /* Nunito-Bold.ttf */,
-				229EE432169EDA5D00EBF0BF /* Nunito-Light.ttf */,
-				229EE433169EDA5D00EBF0BF /* Nunito-Regular.ttf */,
+				F47308A016EA015C001D0710 /* Nunito-Bold.ttf */,
+				F47308A116EA015C001D0710 /* Nunito-Light.ttf */,
+				F47308A216EA015C001D0710 /* Nunito-Regular.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F47308A816EA02D9001D0710 /* Axis Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F47308A916EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.h */,
+				F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */,
+			);
+			name = "Axis Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,9 +409,9 @@
 				2266CA7F1689F70B006AEC44 /* Default-568h@2x.png in Resources */,
 				2266CA821689F70B006AEC44 /* MainStoryboard.storyboard in Resources */,
 				2266CAB31689FAA6006AEC44 /* RangeSelectorSettings.plist in Resources */,
-				229EE435169EDA5D00EBF0BF /* Nunito-Bold.ttf in Resources */,
-				229EE436169EDA5D00EBF0BF /* Nunito-Light.ttf in Resources */,
-				229EE437169EDA5D00EBF0BF /* Nunito-Regular.ttf in Resources */,
+				F47308A416EA015C001D0710 /* Nunito-Bold.ttf in Resources */,
+				F47308A516EA015C001D0710 /* Nunito-Light.ttf in Resources */,
+				F47308A616EA015C001D0710 /* Nunito-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +461,7 @@
 				227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */,
 				229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */,
 				229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */,
+				F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
