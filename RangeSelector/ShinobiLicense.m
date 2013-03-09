@@ -22,7 +22,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"RangeSelectorSettings" ofType:@"plist"];
     NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     NSString *key = settings[@"ShinobiChartsLicenseKey"];
-    if(key && [key isEqualToString:@""]) {
+    if(key && ![key isEqualToString:@""]) {
         return key;
     }
     
