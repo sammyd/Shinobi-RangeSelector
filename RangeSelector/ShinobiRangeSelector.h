@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <ShinobiCharts/ShinobiChart.h>
+#import "SChartDatasourceLookup.h"
 
 @interface ShinobiRangeSelector : UIView <SChartDelegate>
 
-- (id)initWithFrame:(CGRect)frame datasource:(id<SChartDatasource>)datasource splitProportion:(CGFloat)proportion;
+- (id)initWithFrame:(CGRect)frame datasource:(id<SChartDatasource, SChartDatasourceLookup>)datasource splitProportion:(CGFloat)proportion;
 
 @end

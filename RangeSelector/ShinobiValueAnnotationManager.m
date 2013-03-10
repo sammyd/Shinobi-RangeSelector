@@ -8,7 +8,6 @@
 
 #import "ShinobiValueAnnotationManager.h"
 #import "ShinobiAnchoredTextAnnotation.h"
-#import "NSArray+BinarySearch.h"
 
 @interface ShinobiValueAnnotationManager () {
     ShinobiChart *chart;
