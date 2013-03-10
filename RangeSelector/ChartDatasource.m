@@ -9,6 +9,7 @@
 #import "ChartDatasource.h"
 #import "TemperatureData.h"
 #import "TemperatureDataPoint.h"
+#import "NSArray+BinarySearch.h"
 
 @interface ChartDatasource () {
     TemperatureData *temperatureData;
@@ -63,6 +64,18 @@
     dp.xValue = tdp.timestamp;
     dp.yValue = tdp.temperature;
     return dp;
+}
+
+#pragma mark - SChartDatasourceLookup methods
+- (id)estimateYValueForXValue:(id)xValue forSeriesAtIndex:(NSUInteger)idx
+{
+    if([xValue isKindOfClass:[NSNumber class]]) {
+        // Need it to be a date since we are comparing timestamp
+        xValue = [NSDate dateWithTimeIntervalSince1970:[xValue doubleValue]];
+    }
+    NSArray *xValues = [temperatureData.data valueForKeyPath:@"@unionOfObjects.timestamp"];
+    NSUInteger index = [xValues indexOfBiggestObjectSmallerThan:xValue inSortedRange:NSMakeRange(0, xValues.count)];
+    return ((TemperatureDataPoint*)temperatureData.data[index]).temperature;
 }
 
 @end

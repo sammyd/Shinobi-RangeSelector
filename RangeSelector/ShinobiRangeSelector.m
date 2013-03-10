@@ -13,7 +13,7 @@
 #import "ShinobiValueAnnotationManager.h"
 
 @interface ShinobiRangeSelector () <ShinobiRangeAnnotationDelegate> {
-    id<SChartDatasource> chartDatasource;
+    id<SChartDatasource, SChartDatasourceLookup> chartDatasource;
     ShinobiChart *mainChart;
     ShinobiChart *rangeChart;
     ShinobiRangeAnnotationManager *rangeAnnotationManager;
@@ -25,7 +25,7 @@
 
 @implementation ShinobiRangeSelector
 
-- (id)initWithFrame:(CGRect)frame datasource:(id<SChartDatasource>)datasource splitProportion:(CGFloat)proportion
+- (id)initWithFrame:(CGRect)frame datasource:(id<SChartDatasource, SChartDatasourceLookup>)datasource splitProportion:(CGFloat)proportion
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -66,7 +66,7 @@
     mainChart.delegate = self;
     
     // Add some annotations
-    valueAnnotationManager = [[ShinobiValueAnnotationManager alloc] initWithChart:mainChart seriesIndex:0];
+    valueAnnotationManager = [[ShinobiValueAnnotationManager alloc] initWithChart:mainChart datasource:chartDatasource seriesIndex:0];
 
     [self addSubview:mainChart];
 }

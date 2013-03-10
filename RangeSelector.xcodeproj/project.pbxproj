@@ -40,6 +40,7 @@
 		229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */; };
 		229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */; };
 		229EE42E169E73E600EBF0BF /* NSArray+BinarySearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */; };
+		22D1A40516EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D1A40416EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m */; };
 		F47308A416EA015C001D0710 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A016EA015C001D0710 /* Nunito-Bold.ttf */; };
 		F47308A516EA015C001D0710 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A116EA015C001D0710 /* Nunito-Light.ttf */; };
 		F47308A616EA015C001D0710 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A216EA015C001D0710 /* Nunito-Regular.ttf */; };
@@ -111,6 +112,9 @@
 		229EE429169E6CD400EBF0BF /* NSArray+BinarySearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearch.m"; sourceTree = "<group>"; };
 		229EE42C169E73E600EBF0BF /* NSArray+BinarySearchTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+BinarySearchTests.h"; sourceTree = "<group>"; };
 		229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+BinarySearchTests.m"; sourceTree = "<group>"; };
+		22D1A40316EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiAnchoredTextAnnotation.h; sourceTree = "<group>"; };
+		22D1A40416EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiAnchoredTextAnnotation.m; sourceTree = "<group>"; };
+		22D1A40616EC990A007CDCD7 /* SChartDatasourceLookup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChartDatasourceLookup.h; sourceTree = "<group>"; };
 		F47308A016EA015C001D0710 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		F47308A116EA015C001D0710 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		F47308A216EA015C001D0710 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				2266CAA51689F799006AEC44 /* TemperatureData.m */,
 				2266CAAB1689F97D006AEC44 /* TemperatureDataPoint.h */,
 				2266CAAC1689F97D006AEC44 /* TemperatureDataPoint.m */,
+				22D1A40616EC990A007CDCD7 /* SChartDatasourceLookup.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -291,6 +296,8 @@
 			children = (
 				229EE425169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.h */,
 				229EE426169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m */,
+				22D1A40316EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.h */,
+				22D1A40416EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m */,
 			);
 			name = ValuePointer;
 			sourceTree = "<group>";
@@ -462,6 +469,7 @@
 				229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */,
 				229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */,
 				F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */,
+				22D1A40516EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

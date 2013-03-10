@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <ShinobiCharts/ShinobiChart.h>
+#import "SChartDatasourceLookup.h"
 
 @interface ShinobiValueAnnotationManager : NSObject
 
-- (id)initWithChart:(ShinobiChart *)chart seriesIndex:(NSInteger)seriesIndex;
+- (id)initWithChart:(ShinobiChart *)chart datasource:(id<SChartDatasourceLookup>)datasource seriesIndex:(NSInteger)seriesIndex;
 
 - (void)updateValueAnnotationForXAxisRange:(SChartRange *)range;
 

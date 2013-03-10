@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <ShinobiCharts/ShinobiChart.h>
+#import "SChartDatasourceLookup.h"
 
-@interface ChartDatasource : NSObject <SChartDatasource>
+@interface ChartDatasource : NSObject <SChartDatasource, SChartDatasourceLookup>
 
 @end
