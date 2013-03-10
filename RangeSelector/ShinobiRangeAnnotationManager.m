@@ -250,6 +250,12 @@
     [self moveRangeSelectorToRange:range cancelAnimation:YES];
 }
 
+- (void)setInitialMin:(id)min andMax:(id)max
+{
+    leftShading.xValue = min;
+    rightShading.xValueMax = max;
+}
+
 - (void)moveRangeSelectorToRange:(SChartRange *)range cancelAnimation:(BOOL)cancelAnimation
 {
     if (cancelAnimation) {

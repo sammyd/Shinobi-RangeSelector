@@ -115,6 +115,11 @@
     // And update the annotation appropriately
     [rangeAnnotationManager moveRangeSelectorToRange:defaultRange];
     [valueAnnotationManager updateValueAnnotationForXAxisRange:defaultRange];
+    
+    // We also want to set the min/max since it's not available from the axis yet
+    SChartDataPoint *minDP = [chartDatasource sChart:mainChart dataPointAtIndex:0 forSeriesAtIndex:0];
+    SChartDataPoint *maxDP = [chartDatasource sChart:mainChart dataPointAtIndex:(numberPoints-1) forSeriesAtIndex:0];
+    [rangeAnnotationManager setInitialMin:minDP.xValue andMax:maxDP.xValue];
 }
 
 #pragma mark - ShinobiRangeSelectorDelegate methods
