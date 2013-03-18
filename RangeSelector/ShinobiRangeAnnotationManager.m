@@ -11,7 +11,6 @@
 #import "ShinobiRangeHandleAnnotation.h"
 #import "ShinobiRangeSelectionAnnotation.h"
 #import "MomentumAnimation.h"
-#import "SChartAxis+CoordinateSpaceConversion.h"
 
 @interface ShinobiRangeAnnotationManager ()<UIGestureRecognizerDelegate> {
     ShinobiChart *chart;
@@ -158,7 +157,7 @@
     CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas.glView];
     
     // What's the new location we've dragged the handle to?
-    double newValue = [[chart.xAxis estimateDataValueForPixelValue:currentTouchPoint.x] doubleValue];
+    double newValue = [[self estimateDataValueForPixelValue:currentTouchPoint.x onAxis:chart.xAxis] doubleValue];
     
     SChartRange *newRange;
     // Update the range with the new value according to which handle we dragged
@@ -203,7 +202,7 @@
     // Find the extent of the current range
     double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
     // Find the new centre location
-    double newCentreValue = [[chart.xAxis estimateDataValueForPixelValue:pixelValue] doubleValue];
+    double newCentreValue = [[self estimateDataValueForPixelValue:pixelValue onAxis:chart.xAxis] doubleValue];
     // Calculate the new limits
     double newMin = newCentreValue - range/2;
     double newMax = newCentreValue + range/2;
@@ -240,6 +239,27 @@
     }
     
     return range;
+}
+
+- (id)estimateDataValueForPixelValue:(CGFloat)pixelValue onAxis:(SChartAxis*)axis
+{
+    // What is the axis range?
+    SChartRange *range = axis.axisRange;
+    
+    // What's the frame of the plot area
+    CGRect glFrame = chart.canvas.glView.bounds;
+    
+    //
+    CGFloat pixelSpan;
+    if(axis.axisOrientation == SChartOrientationHorizontal) {
+        pixelSpan = glFrame.size.width;
+    } else {
+        pixelSpan = glFrame.size.height;
+    }
+    
+    // Assuming that there is a linear map
+    // NOTE :: This won't work for discontinuous or logarithmic axes
+    return @( [range.span doubleValue] / pixelSpan * pixelValue + [range.minimum doubleValue] );
 }
 
 

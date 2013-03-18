@@ -45,7 +45,6 @@
 		F47308A516EA015C001D0710 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A116EA015C001D0710 /* Nunito-Light.ttf */; };
 		F47308A616EA015C001D0710 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F47308A216EA015C001D0710 /* Nunito-Regular.ttf */; };
 		F47308A716EA015C001D0710 /* ShinobiCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47308A316EA015C001D0710 /* ShinobiCharts.framework */; };
-		F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,8 +118,6 @@
 		F47308A116EA015C001D0710 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
 		F47308A216EA015C001D0710 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		F47308A316EA015C001D0710 /* ShinobiCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiCharts.framework; sourceTree = "<group>"; };
-		F47308A916EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SChartAxis+CoordinateSpaceConversion.h"; sourceTree = "<group>"; };
-		F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SChartAxis+CoordinateSpaceConversion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,7 +261,6 @@
 		2266CABE168A0263006AEC44 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				F47308A816EA02D9001D0710 /* Axis Utilities */,
 				229EE423169DB9C600EBF0BF /* ValuePointer */,
 				2266CACE168A3B26006AEC44 /* RangeAnnotations */,
 				2266CABF168A0280006AEC44 /* ChartDatasource.h */,
@@ -328,15 +324,6 @@
 				F47308A216EA015C001D0710 /* Nunito-Regular.ttf */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		F47308A816EA02D9001D0710 /* Axis Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				F47308A916EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.h */,
-				F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */,
-			);
-			name = "Axis Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,7 +455,6 @@
 				227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */,
 				229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */,
 				229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */,
-				F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */,
 				22D1A40516EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
