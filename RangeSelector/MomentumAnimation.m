@@ -7,13 +7,14 @@
 //
 
 #import "MomentumAnimation.h"
+#import <ShinobiCharts/SChartEaseOutAnimationCurve.h>
 
 @interface MomentumAnimation () {
     CGFloat animationStartTime, animationDuration;
     void (^positionUpdateBlock)(CGFloat);
     CGFloat startPos, endPos;
     BOOL animating;
-    SChartAnimationCurve animationCurve;
+    id<SChartAnimationCurve> animationCurve;
 }
 
 @end
@@ -33,11 +34,11 @@
     [self animateWithStartPosition:startPosition
                      startVelocity:velocity
                           duration:duration
-                    animationCurve:SChartAnimationCurveEaseOut
+                    animationCurve:[[SChartEaseOutAnimationCurve alloc] init]
                        updateBlock:updateBlock];
 }
 
-- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity duration:(CGFloat)duration animationCurve:(SChartAnimationCurve)curve updateBlock:(void (^)(CGFloat))updateBlock
+- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity duration:(CGFloat)duration animationCurve:(id<SChartAnimationCurve>)curve updateBlock:(void (^)(CGFloat))updateBlock
 {
     /*
      Calculate the end position. The positions we are dealing with are proportions
@@ -78,7 +79,7 @@
     if (animating) {
         // Let's update the position
         CGFloat currentTemporalProportion = (CACurrentMediaTime() - animationStartTime) / animationDuration;
-        CGFloat currentSpatialProportion = [SChartAnimationCurveEvaluator evaluateCurve:animationCurve atPosition:currentTemporalProportion];
+        CGFloat currentSpatialProportion = [animationCurve valueAtTime:currentTemporalProportion];
         CGFloat currentPosition = (endPos - startPos) * currentSpatialProportion + startPos;
         
         // Call the block which will perform the repositioning

@@ -36,7 +36,7 @@
  @param updateBlock    This block will be repeatedly called with new position values
                        These values will be normalised (i.e. in the same space as startPosition)
  */
-- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity duration:(CGFloat)duration animationCurve:(SChartAnimationCurve)curve updateBlock:(void (^)(CGFloat))updateBlock;
+- (void)animateWithStartPosition:(CGFloat)startPosition startVelocity:(CGFloat)velocity duration:(CGFloat)duration animationCurve:(id<SChartAnimationCurve>)curve updateBlock:(void (^)(CGFloat))updateBlock;
 
 /**
  Cancels any animations which are currently in progress
