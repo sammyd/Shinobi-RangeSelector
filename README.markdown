@@ -4,8 +4,9 @@ This iOS app is a demonstration of how to create a range selector by linking
 2 [Shinobi](http://www.shinobicontrols.com/) charts, similar to that demonstrated
 in the 'impress' chart in [ShinobiPlay](https://itunes.apple.com/gb/app/shinobiplay/id545634307).
 
-The project is accompanied by a series of blog posts, the first of which is available
-at [http://sammyd.github.com/blog/2013/01/11/building-a-range-selector-with-shinobi-charts-part-i-linking-2-charts/].
+![Screenshot](screenshot.png?raw=true)
+
+The project is accompanied by a series of blog posts, the first of which is available [here](http://www.shinobicontrols.com/blog/posts/2013/02/20/building-a-range-selector-with-shinobicharts-part-i/).
 
 Although the code is not ready to reuse straight out of the box, I have attempted
 to write it in such a way that the majority of it is self-contained and generic
@@ -39,10 +40,12 @@ The code is currently reading the license from a private plist, so you can use t
 as an alternative should you want to. Follow the instructions in the comments of that
 method to discover what to do.
 
-## Questions
+Contributing
+------------
 
-Feel free to hit me up with any questions - on GitHub or
-[@iwantmyrealname](http://twitter.com/iwantmyrealname/) on twitter. The good folks
-at Shinobi (of which I am one) will be happy to help where they can as well.
+We use the Fork & Pull Model so if you want to contribute to this project, please go ahead and fork our repository, make your changes, then send us a pull request when you’d like us to take a look at your work.
 
-(C) Sam Davies, January 2013
+License
+-------
+
+The [Apache License, Version 2.0](license.txt) applies to everything in this repository, and will apply to any user contributions.
