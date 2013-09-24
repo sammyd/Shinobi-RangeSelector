@@ -1,4 +1,4 @@
-# Shinobi-RangeSelector.git
+# ShinobiCharts RangeSelector (Objective-C)
 
 This iOS app is a demonstration of how to create a range selector by linking
 2 [Shinobi](http://www.shinobicontrols.com/) charts, similar to that demonstrated
