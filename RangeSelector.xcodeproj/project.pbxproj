@@ -44,7 +44,6 @@
 		22D0236018B94C68000C2268 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D0235F18B94C68000C2268 /* CoreText.framework */; };
 		22D0236418B94CC3000C2268 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D0236318B94CC3000C2268 /* libc++.dylib */; };
 		22D1A40516EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D1A40416EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m */; };
-		F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +67,8 @@
 		2266CA721689F70B006AEC44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2266CA741689F70B006AEC44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2266CA761689F70B006AEC44 /* RangeSelector-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RangeSelector-Prefix.pch"; sourceTree = "<group>"; };
-		2266CA771689F70B006AEC44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2266CA781689F70B006AEC44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2266CA771689F70B006AEC44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2266CA781689F70B006AEC44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2266CA7A1689F70B006AEC44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2266CA7C1689F70B006AEC44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2266CA7E1689F70B006AEC44 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -96,7 +95,7 @@
 		2266CAC6168A05EE006AEC44 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		2266CAC8168A3163006AEC44 /* ShinobiRangeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeSelector.h; sourceTree = "<group>"; };
 		2266CAC9168A3163006AEC44 /* ShinobiRangeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeSelector.m; sourceTree = "<group>"; };
-		2266CACB168A35A9006AEC44 /* ChartConfigUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartConfigUtilities.h; sourceTree = "<group>"; };
+		2266CACB168A35A9006AEC44 /* ChartConfigUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ChartConfigUtilities.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2266CACC168A35A9006AEC44 /* ChartConfigUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartConfigUtilities.m; sourceTree = "<group>"; };
 		2266CACF168A3B74006AEC44 /* ShinobiRangeAnnotationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiRangeAnnotationManager.h; sourceTree = "<group>"; };
 		2266CAD0168A3B74006AEC44 /* ShinobiRangeAnnotationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiRangeAnnotationManager.m; sourceTree = "<group>"; };
@@ -118,8 +117,6 @@
 		22D1A40316EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShinobiAnchoredTextAnnotation.h; sourceTree = "<group>"; };
 		22D1A40416EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShinobiAnchoredTextAnnotation.m; sourceTree = "<group>"; };
 		22D1A40616EC990A007CDCD7 /* SChartDatasourceLookup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SChartDatasourceLookup.h; sourceTree = "<group>"; };
-		F47308A916EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SChartAxis+CoordinateSpaceConversion.h"; sourceTree = "<group>"; };
-		F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SChartAxis+CoordinateSpaceConversion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,7 +265,6 @@
 		2266CABE168A0263006AEC44 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				F47308A816EA02D9001D0710 /* Axis Utilities */,
 				229EE423169DB9C600EBF0BF /* ValuePointer */,
 				2266CACE168A3B26006AEC44 /* RangeAnnotations */,
 				2266CABF168A0280006AEC44 /* ChartDatasource.h */,
@@ -313,15 +309,6 @@
 				229EE42D169E73E600EBF0BF /* NSArray+BinarySearchTests.m */,
 			);
 			name = Utilities;
-			sourceTree = "<group>";
-		};
-		F47308A816EA02D9001D0710 /* Axis Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				F47308A916EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.h */,
-				F47308AA16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m */,
-			);
-			name = "Axis Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,7 +437,6 @@
 				227056AE169BD83800799D62 /* MomentumAnimation.m in Sources */,
 				229EE427169DBB2F00EBF0BF /* ShinobiValueAnnotationManager.m in Sources */,
 				229EE42A169E6CD400EBF0BF /* NSArray+BinarySearch.m in Sources */,
-				F47308AB16EA03D4001D0710 /* SChartAxis+CoordinateSpaceConversion.m in Sources */,
 				22D1A40516EBB182007CDCD7 /* ShinobiAnchoredTextAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
