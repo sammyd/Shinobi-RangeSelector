@@ -34,7 +34,7 @@
     [self animateWithStartPosition:startPosition
                      startVelocity:velocity
                           duration:duration
-                    animationCurve:[[SChartEaseOutAnimationCurve alloc] init]
+                    animationCurve:[SChartEaseOutAnimationCurve new]
                        updateBlock:updateBlock];
 }
 

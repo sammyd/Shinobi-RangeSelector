@@ -87,7 +87,13 @@
         xValue = [NSDate dateWithTimeIntervalSince1970:[xValue doubleValue]];
     }
     NSArray *xValues = [temperatureData.data valueForKeyPath:@"@unionOfObjects.timestamp"];
-    NSUInteger index = [xValues indexOfBiggestObjectSmallerThan:xValue inSortedRange:NSMakeRange(0, xValues.count)];
+    NSUInteger index;
+    @try {
+        index = [xValues indexOfBiggestObjectSmallerThan:xValue inSortedRange:NSMakeRange(0, xValues.count)];
+    }
+    @catch (NSException *exception) {
+        index = 0;
+    }
     return ((TemperatureDataPoint*)temperatureData.data[index]).temperature;
 }
 

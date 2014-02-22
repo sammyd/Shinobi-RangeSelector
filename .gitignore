@@ -1,5 +1,5 @@
 # Shinobi should be added by the end user
-ShinobiCharts.embeddedframework
+Shinobi*.framework
 
 # We ignore the settings file too
 RangeSelector/RangeSelectorSettings.sample.plist
