@@ -123,7 +123,12 @@
     
     // And now set the default range to this range
     [mainChart.xAxis setDefaultRange:defaultRange];
-    [mainChart.xAxis resetZoomLevel];
+    
+    // -resetZoomLevel is a no-op if the initial zoom is unaltered,
+    // or the axis zoom methods haven't been called. There's no need
+    // to call this if we're not calling the axis zoom methods, such
+    // as -setZoom:    (Thanks to Rob Pilling)
+    //[mainChart.xAxis resetZoomLevel];
     
     // And update the annotation appropriately
     [rangeAnnotationManager moveRangeSelectorToRange:defaultRange];
