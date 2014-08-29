@@ -31,6 +31,7 @@
     SChartAnnotationZooming *leftShading, *rightShading, *rangeSelection;
     MomentumAnimation *momentumAnimation;
     CGFloat minimumSpan;
+    CGPoint previousTouchPoint;
 }
 
 @end
@@ -121,24 +122,40 @@
     // What's the pixel location of the touch?
     CGPoint currentTouchPoint = [recogniser locationInView:chart.canvas.glView];
     
+    CGPoint difference = CGPointMake(currentTouchPoint.x - previousTouchPoint.x,
+                                     currentTouchPoint.y - previousTouchPoint.y);
+    
+    previousTouchPoint = currentTouchPoint;
+    
+    if (recogniser.state == UIGestureRecognizerStateBegan) {
+        return;
+    }
+    
     if (recogniser.state == UIGestureRecognizerStateEnded) {
         // Work out some values required for the animation
         // startPosition is normalised so in range [0,1]
-        CGFloat startPosition = currentTouchPoint.x / chart.canvas.glView.bounds.size.width;
+        //CGFloat startPosition = currentTouchPoint.x / chart.canvas.glView.bounds.size.width;
+        // use as offset, so start at 0
+        CGFloat startPosition = 0;
         // startVelocity should be normalised as well
         CGFloat startVelocity = [recogniser velocityInView:chart.canvas.glView].x / chart.canvas.glView.bounds.size.width;
 
+        __block CGFloat prevPosition = 0;
+        
         // Use the momentum animator instance we have to start animating the annotation
         [momentumAnimation animateWithStartPosition:startPosition
                                       startVelocity:startVelocity
                                            duration:1.f
-                                        updateBlock:^(CGFloat position) {
+                                        updateBlock:^(CGFloat position)
+        {
             // This is the code which will get called to update the position
-            CGFloat centrePixelLocation = position * chart.canvas.bounds.size.width;
+            CGFloat offset = (position - prevPosition) * chart.canvas.bounds.size.width;
+            
+            prevPosition = position;
             
             // Create the range
-            SChartRange *updatedRange = [self rangeCentredOnPixelValue:centrePixelLocation];
-                                            
+            SChartRange *updatedRange = [self rangeShiftedByPixelValue:offset];
+            
             // Ensure that this newly created range is within the bounds of the chart
             updatedRange = [self ensureWithinChartBounds:updatedRange maintainingSpan:YES];
             
@@ -152,7 +169,7 @@
         
     } else {                
         // Create the range
-        SChartRange *updatedRange = [self rangeCentredOnPixelValue:currentTouchPoint.x];
+        SChartRange *updatedRange = [self rangeShiftedByPixelValue:difference.x];
         
         // Ensure that this newly created range is within the bounds of the chart
         updatedRange = [self ensureWithinChartBounds:updatedRange maintainingSpan:YES];
@@ -216,6 +233,45 @@
     double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
     // Find the new centre location
     double newCentreValue = [[self estimateDataValueForPixelValue:pixelValue onAxis:chart.xAxis] doubleValue];
+    // Calculate the new limits
+    double newMin = newCentreValue - range/2;
+    double newMax = newCentreValue + range/2;
+    
+    // Create the range and return it
+    return [[SChartRange alloc] initWithMinimum:@(newMin) andMaximum:@(newMax)];
+}
+
+- (SChartRange*)rangeShiftedByPixelValue:(CGFloat)pixelValue
+{
+    // Find the extent of the current range
+    double range = [rightLine.xValue doubleValue] - [leftLine.xValue doubleValue];
+    
+    SChartAxis *axis = chart.xAxis;
+    
+    // What is the axis range?
+    SChartRange *rangeObj = axis.axisRange;
+    
+    // What's the frame of the plot area
+    CGRect glFrame = chart.canvas.glView.bounds;
+    
+    //
+    CGFloat pixelSpan;
+    if(axis.axisOrientation == SChartOrientationHorizontal) {
+        pixelSpan = glFrame.size.width;
+    } else {
+        pixelSpan = glFrame.size.height;
+    }
+    
+    // Find the old centre location
+    // Assuming that there is a linear map
+    // NOTE :: This won't work for discontinuous or logarithmic axes
+    double oldCentreValue = range / 2 + [leftLine.xValue doubleValue];
+    
+    //
+    double offset = [rangeObj.span doubleValue] / pixelSpan * pixelValue;
+    
+    // Find the new centre location
+    double newCentreValue = oldCentreValue + offset;
     // Calculate the new limits
     double newMin = newCentreValue - range/2;
     double newMax = newCentreValue + range/2;
