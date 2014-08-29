@@ -38,9 +38,24 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     datasource = [[ChartDatasource alloc] init];
-    rangeSelector = [[ShinobiRangeSelector alloc] initWithFrame:self.view.bounds datasource:datasource splitProportion:0.75f];
+    // Make frame landscape on iPhone.
+    CGRect frame = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? self.view.bounds : [self landscapeFrame];
+    rangeSelector = [[ShinobiRangeSelector alloc] initWithFrame:frame datasource:datasource splitProportion:0.75f];
     
     [self.view addSubview:rangeSelector];
+}
+
+- (CGRect)landscapeFrame
+{
+    // make it landscape
+    CGRect frame = self.view.bounds;
+    CGFloat width = self.view.bounds.size.width;
+    if (frame.size.height > width) {
+        // swap width <-> height
+        frame.size.width = frame.size.height;
+        frame.size.height = width;
+    }
+    return frame;
 }
 
 - (void)didReceiveMemoryWarning
