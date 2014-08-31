@@ -49,8 +49,12 @@
     endPos = startPosition + (velocity * duration) / 5;
     
     // Fix to the limits
-    if (endPos < 0) {
-        endPos = 0;
+    // Since position is now relative instead of absolute, the minimum endPos is -1
+    // This isn't really necessary because
+    // -[ShinobiRangeAnnotationManager ensureWithinChartBounds:maintainingSpan:]
+    // also ensures this, but it doesn't hurt.
+    if (endPos < -1) {
+        endPos = -1;
     }
     if (endPos > 1) {
         endPos = 1;
